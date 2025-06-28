@@ -170,13 +170,13 @@ def valid_steps(model_G, valid, opt, iter, writer, rank, logger):
 
                 pred = model_G.forward(im, phase='valid')
 
-                # === [★] 채널 보장 ===
+                # === 채널 보장 ===
                 if pred.dim() == 4 and pred.shape[1] == 1:
                     pred = pred.repeat(1, 3, 1, 1)
                 if lb.dim() == 4 and lb.shape[1] == 1:
                     lb = lb.repeat(1, 3, 1, 1)
 
-                # === [★] 평가 전, 이미지 저장 전 [H, W, 3]으로 변환 ===
+                # === 평가 전, 이미지 저장 전 [H, W, 3]으로 변환 ===
                 pred = pred.squeeze(0)       # [3, H, W]
                 lb = lb.squeeze(0)           # [3, H, W]
                 # [3, H, W] → [H, W, 3] 변환
@@ -337,7 +337,7 @@ def train(opt, logger, rank=0):
             loss_G.backward()
             opt_G.step()
 
-            # ==== [여기부터 DEBUG 코드 추가!] ====
+            # ==== 여기부터 DEBUG 코드 추가 ====
             print("[DEBUG] im (input) shape:", im.shape, "min:", im.min().item(), "max:", im.max().item())
             print("[DEBUG] lb (label) shape:", lb.shape, "min:", lb.min().item(), "max:", lb.max().item())
             print("[DEBUG] pred shape:", pred.shape, "min:", pred.min().item(), "max:", pred.max().item())
@@ -390,7 +390,7 @@ def train(opt, logger, rank=0):
             # Display gradients
             if i % opt.gradientStep == 0:
                 for name, param in model_G.named_parameters():
-                    if param.grad is not None:  # ✅ 이 라인 추가, MultiWeightedSRNets_v3에서
+                    if param.grad is not None:  # 이 라인 추가, MultiWeightedSRNets_v3에서
                         writer.add_histogram(f'gradients/{name}', param.grad, i)
 
 
