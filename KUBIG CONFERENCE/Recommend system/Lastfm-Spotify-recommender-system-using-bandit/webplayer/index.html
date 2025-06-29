@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Web Playback</title>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="player.js" defer></script>
+  <style>
+    body { font-family: Arial; background-color: #121212; color: white; text-align: center; padding-top: 50px; }
+    input, button { margin: 10px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🎧 Spotify Web Playback</h1>
+  <div id="login-area">
+    <button id="login-btn">🔐 Login with Spotify</button>
+  </div>
+  <div id="player-area" style="display:none;">
+    <p>✅ Logged in as <span id="display-name"></span></p>
+    <button id="play-btn">▶️ Play Playlist</button>
+  </div>
+</body>
+</html>
