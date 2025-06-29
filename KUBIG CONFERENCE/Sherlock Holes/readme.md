@@ -12,10 +12,10 @@
 
 ```
 Sherlock Holes
-├─ 1. Geo-Coding, Preprocessing.ipynb
-├─ 2. 전처리, 데이터 병합.ipynb
-├─ 3. modeling.ipynb
-├─ 4. 포트홀 예측 리포트.ipynb
+├─ 1. Geo-Coding.ipynb
+├─ 2. Preprocessing, Merging.ipynb
+├─ 3. Modeling.ipynb
+├─ 4. Pothole Report.ipynb
 └─ README.md
 ```
 
