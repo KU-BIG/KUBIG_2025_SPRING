@@ -8,12 +8,10 @@
 ![image1](https://github.com/KU-BIG/KUBIG_2025_SPRING/blob/63d876e3a521e7ff949ae4b1aae2f39ee4de60e7/KUBIG%20CONFERENCE/Sherlock%20Holes/summary/summary1.png)
 ![image2](https://github.com/KU-BIG/KUBIG_2025_SPRING/blob/63d876e3a521e7ff949ae4b1aae2f39ee4de60e7/KUBIG%20CONFERENCE/Sherlock%20Holes/summary/summary2.png)
 
-
-## Project Structure
+## 프로젝트 구성
 
 ```
-youth_policy
-├─ .gitignore
+Sherlock Holes
 ├─ chatbot.py
 ├─ data
 │  ├─ chromadb.py
