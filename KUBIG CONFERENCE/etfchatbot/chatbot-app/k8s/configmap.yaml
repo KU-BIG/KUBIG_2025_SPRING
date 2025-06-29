@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etf-chatbot-config
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+data:
+  # 일반 설정 (민감하지 않은 정보)
+  SYNC_FROM_S3: "true"
+  
+  # FastAPI 설정
+  FASTAPI_HOST: "0.0.0.0"
+  FASTAPI_PORT: "8000"
+  FASTAPI_WORKERS: "1"
+  FASTAPI_LOG_LEVEL: "info"
+  
+  # Streamlit 설정 (NodePort 최적화)
+  STREAMLIT_PORT: "8501"
+  STREAMLIT_HOST: "0.0.0.0"
+  STREAMLIT_SERVER_HEADLESS: "true"
+  STREAMLIT_SERVER_ENABLE_CORS: "false"
+  STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION: "false"
+  
+  # LangSmith 설정 (추적 활성화)
+  LANGCHAIN_TRACING_V2: "true"
+  LANGCHAIN_PROJECT: "etf-chatbot-prod"
+  
+  # 로깅 설정
+  LOG_LEVEL: "INFO"
+  PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1" 

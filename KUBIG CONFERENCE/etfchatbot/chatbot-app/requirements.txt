@@ -1,0 +1,61 @@
+# 웹 프레임워크
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+streamlit==1.46.0
+starlette==0.46.2
+
+# HTTP 및 요청
+requests==2.32.3
+httpx==0.28.1
+python-multipart==0.0.20
+
+# LangChain 생태계 (Agent 및 Tool 지원)
+langchain==0.3.26
+langchain-community==0.3.26  
+langchain-openai==0.3.26
+langchain-chroma==0.2.3
+langgraph==0.4.5
+langchain-core==0.3.66
+langchain-text-splitters==0.3.8
+langsmith==0.4.3
+
+# Vector Database
+chromadb==0.4.24
+
+# 데이터 처리 (핵심만)
+pandas==2.2.3
+numpy==1.26.2
+
+# 임베딩 및 ML
+sentence-transformers==4.1.0
+huggingface-hub==0.31.4
+tiktoken==0.9.0
+
+# OpenAI
+openai==1.92.2
+
+# 환경 및 설정
+python-dotenv==1.1.0
+pydantic==2.11.4
+pydantic-core==2.33.2
+
+# AWS S3 연동
+boto3==1.37.3
+s3fs==2025.5.0
+
+# 유틸리티
+tqdm==4.67.1
+tenacity==8.3.0
+click==8.1.8
+psutil==7.0.0
+pytz==2024.1
+certifi==2025.4.26
+
+# 보안
+pyOpenSSL==23.2.0
+
+# 기타 필수
+colorama==0.4.6
+packaging==24.2
+python-dateutil==2.9.0.post0
+PyYAML==6.0.2 

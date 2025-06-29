@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: etf-chatbot-service
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+spec:
+  type: ClusterIP
+  selector:
+    app: etf-chatbot
+    component: unified
+  ports:
+  - name: fastapi
+    port: 8000
+    targetPort: 8000
+    protocol: TCP
+  - name: streamlit
+    port: 8501
+    targetPort: 8501
+    protocol: TCP
+
+---
+# 외부 접근을 위한 NodePort 서비스 (개발/테스트용)
+apiVersion: v1
+kind: Service
+metadata:
+  name: etf-chatbot-nodeport
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+    service-type: external
+spec:
+  type: NodePort
+  selector:
+    app: etf-chatbot
+    component: unified
+  ports:
+  - name: fastapi
+    port: 8000
+    targetPort: 8000
+    nodePort: 30800  # 외부에서 FastAPI 접근
+    protocol: TCP
+  - name: streamlit
+    port: 8501
+    targetPort: 8501
+    nodePort: 30801  # 외부에서 Streamlit 접근
+    protocol: TCP 

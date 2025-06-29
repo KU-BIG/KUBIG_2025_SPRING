@@ -1,0 +1,403 @@
+pipeline {
+    agent any  // Jenkins Pod에서 실행
+    
+    environment {
+        // 챗봇 프로젝트 정보
+        APP_NAME = 'kubig25ss-etf-chatbot'
+        DOCKER_TAG = "${BUILD_NUMBER}"
+        K8S_NAMESPACE = 'etf-chatbot'
+        K8S_DEPLOYMENT = 'etf-chatbot'
+        K8S_CONTAINER = 'etf-chatbot'
+    }
+
+    parameters {
+        choice(
+            name: 'DEPLOY_TYPE',
+            choices: ['build-and-deploy', 'build-only', 'deploy-only'],
+            description: '배포 유형을 선택하세요'
+        )
+        string(
+            name: 'GIT_BRANCH',
+            defaultValue: 'junseok',
+            description: '빌드할 Git 브랜치명'
+        )
+    }
+
+    stages {
+        stage('etup & Validation') {
+            steps {
+                script {
+                    echo "ETF 챗봇 CI/CD 파이프라인 시작 (Kaniko 빌드)"
+                    echo "빌드 번호: ${BUILD_NUMBER}"
+                    echo "배포 유형: ${params.DEPLOY_TYPE}"
+                    
+                    // 환경 확인
+                    sh '''
+                        echo "=== 환경 확인 ==="
+                        kubectl version --client || echo "kubectl 설치 필요"
+                        ls -la chatbot-app/
+                    '''
+                }
+            }
+        }
+
+        stage('Prepare Secrets') {
+            when {
+                expression { params.DEPLOY_TYPE in ['build-and-deploy', 'build-only'] }
+            }
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'docker-hub-credentials',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    ),
+                    usernamePassword(
+                        credentialsId: 'github-credentials',
+                        usernameVariable: 'GITHUB_USERNAME',
+                        passwordVariable: 'GITHUB_PASSWORD'
+                    )
+                ]) {
+                    script {
+                        env.DOCKER_IMAGE = "${DOCKER_USERNAME}/${APP_NAME}"
+                        env.GIT_BRANCH = "${params.GIT_BRANCH}".replaceAll("^origin/", "")
+                        
+                        echo "환경변수 설정 완료:"
+                        echo "  - Docker Image: ${env.DOCKER_IMAGE}"
+                        echo "  - Git Branch: ${env.GIT_BRANCH} (origin/ 제거됨)"
+                        echo "  - Build Number: ${BUILD_NUMBER}"
+                        
+                        // Secret 생성
+                        sh '''
+                            echo "=== Docker Secret 생성 ==="
+                            
+                            # 네임스페이스 생성 (없으면 자동 생성)
+                            echo "네임스페이스 ${K8S_NAMESPACE} 확인 중..."
+                            kubectl create namespace ${K8S_NAMESPACE} --dry-run=client -o yaml | kubectl apply -f -
+                            echo "네임스페이스 ${K8S_NAMESPACE} 준비 완료"
+                            
+                            # Docker config.json 생성
+                            mkdir -p /tmp/docker-config
+                            cat > /tmp/docker-config/config.json << EOF
+{
+    "auths": {
+        "https://index.docker.io/v1/": {
+            "auth": "$(echo -n "${DOCKER_USERNAME}:${DOCKER_PASSWORD}" | base64 -w 0)"
+        }
+    }
+}
+EOF
+                            
+                            # Kubernetes Secret 생성 (Docker만)
+                            kubectl create secret generic docker-config \
+                                --from-file=/tmp/docker-config/config.json \
+                                --namespace=${K8S_NAMESPACE} \
+                                --dry-run=client -o yaml | kubectl apply -f -
+                            
+                            # Secret 동기화 대기
+                            echo "Secret 동기화 대기 (10초)"
+                            sleep 10
+                            
+                            # Secret 존재 확인
+                            kubectl get secret docker-config -n ${K8S_NAMESPACE}
+                            echo "Docker Secret 준비 완료"
+                        '''
+                    }
+                }
+            }
+        }
+
+        stage('🏗️ Build with Kaniko') {
+            when {
+                expression { params.DEPLOY_TYPE in ['build-and-deploy', 'build-only'] }
+            }
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'docker-hub-credentials',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    ),
+                    usernamePassword(
+                        credentialsId: 'github-credentials',
+                        usernameVariable: 'GITHUB_USERNAME',
+                        passwordVariable: 'GITHUB_PASSWORD'
+                    )
+                ]) {
+                    script {
+                        // 환경변수 설정
+                        env.DOCKER_IMAGE = "${DOCKER_USERNAME}/${APP_NAME}"
+                        env.GIT_BRANCH_CLEAN = "${params.GIT_BRANCH}".replaceAll("^origin/", "")
+                        
+                        echo "이미지: ${env.DOCKER_IMAGE}:${DOCKER_TAG}"
+                        echo "브랜치: ${env.GIT_BRANCH_CLEAN} (정리됨)"
+                        
+                        // Git credentials 확인
+                        echo "Git 사용자: ${GITHUB_USERNAME}"
+                        echo "Docker 사용자: ${DOCKER_USERNAME}"
+                    }
+                    
+                    // Kaniko로 이미지 빌드
+                    sh '''
+                            echo "=== Git 소스 준비 ==="
+                            
+                            # Jenkins에서 Git clone (credentials 사용)
+                            rm -rf /tmp/source
+                            echo "Git clone 시작: 브랜치 ${GIT_BRANCH_CLEAN}"
+                            git clone -b ${GIT_BRANCH_CLEAN} https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/junseok0913/25SS-Conference-Project.git /tmp/source
+                            
+                            # 소스 확인
+                            ls -la /tmp/source/chatbot-app/
+                            
+                            echo "=== Kaniko로 Docker 이미지 빌드 ==="
+                            
+                            # 소스 코드를 ConfigMap으로 생성 (압축)
+                            cd /tmp/source/chatbot-app
+                            tar czf /tmp/source.tar.gz .
+                            kubectl create configmap source-context \
+                                --from-file=source.tar.gz=/tmp/source.tar.gz \
+                                --namespace=${K8S_NAMESPACE} \
+                                --dry-run=client -o yaml | kubectl apply -f -
+                            
+                            # Kaniko Job 생성
+                            cat > kaniko-build.yaml << EOF
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kaniko-build-${BUILD_NUMBER}
+  namespace: ${K8S_NAMESPACE}
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/control-plane
+                operator: DoesNotExist
+      tolerations: []
+      containers:
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:latest
+        args: 
+        - "--dockerfile=Dockerfile"
+        - "--context=tar:///workspace/source.tar.gz"
+        - "--destination=${DOCKER_IMAGE}:${DOCKER_TAG}"
+        - "--cache=false"
+        - "--verbosity=warn"
+        - "--single-snapshot"
+        - "--cleanup"
+        - "--compressed-caching=false"
+        - "--use-new-run"
+        - "--push-retry=3"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "4Gi"
+            cpu: "500m"
+        volumeMounts:
+        - name: docker-config
+          mountPath: /kaniko/.docker/
+        - name: source-context
+          mountPath: /workspace
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /kaniko/.docker/config.json
+      volumes:
+      - name: docker-config
+        secret:
+          secretName: docker-config
+          defaultMode: 0600
+          items:
+          - key: config.json
+            path: config.json
+      - name: source-context
+        configMap:
+          name: source-context
+EOF
+                            
+                            # Job 실행
+                            kubectl apply -f kaniko-build.yaml
+                            
+                            # Job 완료 대기 (30분)
+                            kubectl wait --for=condition=complete job/kaniko-build-${BUILD_NUMBER} \
+                                --namespace=${K8S_NAMESPACE} \
+                                --timeout=1800s
+                            
+                            # 빌드 로그 확인
+                            kubectl logs job/kaniko-build-${BUILD_NUMBER} --namespace=${K8S_NAMESPACE}
+                            
+                            echo "=== 빌드 완료 ==="
+                            echo "이미지: ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                        '''
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            when {
+                expression { params.DEPLOY_TYPE in ['build-and-deploy', 'deploy-only'] }
+            }
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'docker-hub-credentials',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    ),
+                    usernamePassword(
+                        credentialsId: 'aws-credentials',
+                        usernameVariable: 'AWS_ACCESS_KEY_ID',
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                    ),
+                    string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY'),
+                    string(credentialsId: 'aws-s3-bucket', variable: 'AWS_S3_BUCKET'),
+                    string(credentialsId: 'aws-region', variable: 'AWS_REGION'),
+                    string(credentialsId: 'langchain-api-key', variable: 'LANGCHAIN_API_KEY')
+                ]) {
+                    script {
+                        env.DOCKER_IMAGE = "${DOCKER_USERNAME}/${APP_NAME}"
+                    }
+                    sh '''
+                        echo "=== 쿠버네티스 배포 시작 ==="
+                        
+                        # 네임스페이스 생성
+                        kubectl create namespace ${K8S_NAMESPACE} --dry-run=client -o yaml | kubectl apply -f -
+                        
+                        # Secrets 업데이트
+                        kubectl create secret generic etf-chatbot-secrets \
+                            --from-literal=OPENAI_API_KEY="${OPENAI_API_KEY}" \
+                            --from-literal=AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                            --from-literal=AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                            --from-literal=AWS_S3_BUCKET="${AWS_S3_BUCKET}" \
+                            --from-literal=AWS_REGION="${AWS_REGION}" \
+                            --from-literal=LANGCHAIN_API_KEY="${LANGCHAIN_API_KEY}" \
+                            --from-literal=LANGCHAIN_PROJECT="25ss-kubig" \
+                            --namespace=${K8S_NAMESPACE} \
+                            --dry-run=client -o yaml | kubectl apply -f -
+                        
+                        # 리소스 적용 (ServiceAccount 먼저)
+                        kubectl apply -f chatbot-app/k8s/serviceaccount.yaml
+                        kubectl apply -f chatbot-app/k8s/configmap.yaml
+                        
+                        # StorageClass 조건부 생성 (클러스터 레벨)
+                        kubectl apply -f chatbot-app/k8s/storageclass-multiattach.yaml
+                        
+                        # PVC 조건부 생성
+                        if ! kubectl get pvc etf-chatbot-data-multi -n ${K8S_NAMESPACE} >/dev/null 2>&1; then
+                            echo "PVC가 존재하지 않음 - 새로 생성합니다"
+                            kubectl apply -f chatbot-app/k8s/pvc-multiattach.yaml
+                        else
+                            echo "PVC가 이미 존재함 - 기존 PVC 사용"
+                            kubectl get pvc etf-chatbot-data-multi -n ${K8S_NAMESPACE}
+                        fi
+                        
+                        # 이미지 태그 설정 (deploy-only면 latest, 아니면 빌드번호)
+                        if [ "${DEPLOY_TYPE}" = "deploy-only" ]; then
+                            sed -i "s|BUILD_TAG|29|g" chatbot-app/k8s/chatbot-deployment.yaml
+                        else
+                            sed -i "s|BUILD_TAG|${DOCKER_TAG}|g" chatbot-app/k8s/chatbot-deployment.yaml
+                        fi
+                        
+                        # 배포 적용 (NodePort 환경 - Ingress 제외)
+                        kubectl apply -f chatbot-app/k8s/chatbot-deployment.yaml
+                        kubectl apply -f chatbot-app/k8s/chatbot-service.yaml
+                        
+                        # latest 태그일 때 강제 재배포 (새 이미지 pull)
+                        if [ "${DEPLOY_TYPE}" = "deploy-only" ]; then
+                            echo "=== latest 이미지 강제 재배포 ==="
+                            kubectl rollout restart deployment/${K8S_DEPLOYMENT} --namespace=${K8S_NAMESPACE}
+                        fi
+                        
+                        # 배포 상태 확인
+                        kubectl rollout status deployment/${K8S_DEPLOYMENT} \
+                            --namespace=${K8S_NAMESPACE} \
+                            --timeout=600s
+                    '''
+                }
+            }
+        }
+
+        stage('Health Check') {
+            when {
+                expression { params.DEPLOY_TYPE in ['build-and-deploy', 'deploy-only'] }
+            }
+            steps {
+                sh '''
+                    echo "=== 애플리케이션 헬스 체크 ==="
+                    
+                    # Pod 상태 확인
+                    kubectl get pods -n ${K8S_NAMESPACE} -l app=etf-chatbot
+                    
+                    # 서비스 확인
+                    kubectl get services -n ${K8S_NAMESPACE}
+                    
+                    # NodePort로 직접 헬스 체크
+                    echo "NodePort 서비스 확인:"
+                    kubectl get svc etf-chatbot-nodeport -n ${K8S_NAMESPACE}
+                    
+                    # 노드 IP 확인
+                    NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="ExternalIP")].address}')
+                    if [ -z "$NODE_IP" ]; then
+                        NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+                        echo "External IP 없음, Internal IP 사용: $NODE_IP"
+                    else
+                        echo "External IP 사용: $NODE_IP"
+                    fi
+                    
+                    echo "접속 정보:"
+                    echo "FastAPI: http://$NODE_IP:30800/ping"
+                    echo "Streamlit: http://$NODE_IP:30801/"
+                    
+                    # Internal 헬스 체크 (클러스터 내부에서)
+                    kubectl run temp-curl --image=curlimages/curl --rm -i --restart=Never -- \
+                        curl -f http://etf-chatbot-service.${K8S_NAMESPACE}.svc.cluster.local:8000/ping \
+                        && echo "내부 헬스 체크 성공" || echo "내부 헬스 체크 실패"
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // Kaniko Job 정리
+                sh '''
+                    kubectl delete job kaniko-build-${BUILD_NUMBER} \
+                        --namespace=${K8S_NAMESPACE} \
+                        --ignore-not-found=true
+                '''
+                
+                def buildStatus = currentBuild.result ?: 'SUCCESS'
+                echo """
+                ═══════════════════════════════════════
+                ETF 챗봇 빌드 완료 (Kaniko)
+                ═══════════════════════════════════════
+                상태: ${buildStatus}
+                버전: ${BUILD_NUMBER}
+                이미지: ${env.DOCKER_IMAGE ?: 'N/A'}:${DOCKER_TAG}
+                ═══════════════════════════════════════
+                """
+            }
+        }
+        
+        cleanup {
+            sh '''
+                # 임시 파일 정리
+                rm -f kaniko-build.yaml
+                rm -rf /tmp/docker-config
+                rm -rf /tmp/source
+                rm -f /tmp/source.tar.gz
+                
+                # ConfigMap 정리
+                kubectl delete configmap source-context \
+                    --namespace=${K8S_NAMESPACE} \
+                    --ignore-not-found=true
+            '''
+        }
+    }
+} 

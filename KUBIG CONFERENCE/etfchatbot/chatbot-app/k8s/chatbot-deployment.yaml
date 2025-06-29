@@ -1,0 +1,132 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: etf-chatbot
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+    component: unified
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate  # Multi-Attach PVC와 함께 Rolling Update 사용
+    rollingUpdate:
+      maxSurge: 1         # 임시로 1개 추가 pod 생성 허용
+      maxUnavailable: 0   # 다운타임 방지
+  selector:
+    matchLabels:
+      app: etf-chatbot
+      component: unified
+  template:
+    metadata:
+      labels:
+        app: etf-chatbot
+        component: unified
+    spec:
+      serviceAccountName: etf-chatbot  # ServiceAccount 적용
+      containers:
+      - name: etf-chatbot
+        image: junseok0913/kubig25ss-etf-chatbot:BUILD_TAG  # Jenkins에서 동적 교체
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: fastapi
+        - containerPort: 8501
+          name: streamlit
+        
+        # 환경변수 - ConfigMap에서 가져오기
+        envFrom:
+        - configMapRef:
+            name: etf-chatbot-config
+        - secretRef:
+            name: etf-chatbot-secrets
+        
+        # 개별 환경변수
+        env:
+        - name: PYTHONPATH
+          value: "/app"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: SYNC_FROM_S3
+          value: "true"
+        # HuggingFace 캐시 디렉토리를 쓰기 가능한 위치로 설정
+        - name: TRANSFORMERS_CACHE
+          value: "/app/data/.cache/huggingface"
+        - name: HF_HOME
+          value: "/app/data/.cache/huggingface"
+        - name: SENTENCE_TRANSFORMERS_HOME
+          value: "/app/data/.cache/sentence_transformers"
+        # AWS 설정 (환경변수만 사용)
+        - name: AWS_CONFIG_FILE
+          value: "/app/data/.aws/config"
+        - name: AWS_SHARED_CREDENTIALS_FILE
+          value: "/app/data/.aws/credentials"
+        
+        # 리소스 제한
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        
+        # 헬스체크
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+        
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        
+        # 볼륨 마운트
+        volumeMounts:
+        - name: data-storage
+          mountPath: /app/data
+        
+        # 보안 컨텍스트
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
+          readOnlyRootFilesystem: false  # 로그 파일 쓰기 허용
+          capabilities:
+            drop:
+            - ALL
+      
+      volumes:
+      - name: data-storage
+        persistentVolumeClaim:
+          claimName: etf-chatbot-data-multi  # Multi-Attach 지원 PVC로 변경
+      
+      # 재시작 정책
+      restartPolicy: Always
+      
+      # 보안 설정
+      securityContext:
+        fsGroup: 1000
+      
+      # 노드 선택 (선택적)
+      # nodeSelector:
+      #   workload: compute-optimized
+      
+      # 허용 가능한 리소스 부족 (선택적)
+      # tolerations:
+      # - key: "workload"
+      #   operator: "Equal"
+      #   value: "compute"
+      #   effect: "NoSchedule" 

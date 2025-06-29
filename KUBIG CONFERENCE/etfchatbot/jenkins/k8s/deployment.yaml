@@ -1,0 +1,155 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: jenkins
+  labels:
+    app: jenkins
+    component: master
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: jenkins
+      component: master
+  template:
+    metadata:
+      labels:
+        app: jenkins
+        component: master
+    spec:
+      # 워커노드에만 배포되도록 설정
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      
+      serviceAccountName: jenkins
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        
+      # kubectl 설치를 위한 InitContainer
+      initContainers:
+      - name: install-kubectl
+        image: alpine:latest
+        command:
+        - sh
+        - -c
+        - |
+          # Jenkins 홈에 bin 디렉토리 생성 (jenkins 유저 소유로)
+          mkdir -p /var/jenkins_home/bin
+          chown 1000:1000 /var/jenkins_home/bin
+          
+          # kubectl 다운로드 및 설치
+          apk add --no-cache curl
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          mv kubectl /var/jenkins_home/bin/kubectl
+          chown 1000:1000 /var/jenkins_home/bin/kubectl
+          
+          echo "kubectl 설치 완료: /var/jenkins_home/bin/kubectl"
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+          
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:2.504.2-lts
+        imagePullPolicy: Always
+        
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        - name: jnlp
+          containerPort: 50000
+          protocol: TCP
+          
+        env:
+        # Java 옵션 설정
+        - name: JAVA_OPTS
+          value: >
+            -server
+            -Xms512m
+            -Xmx1536m
+            -XX:+UseG1GC
+            -XX:+UseStringDeduplication
+            -Djava.awt.headless=true
+            -Djenkins.install.runSetupWizard=true
+            -Duser.timezone=Asia/Seoul
+            
+        # Jenkins 옵션
+        - name: JENKINS_OPTS
+          value: >
+            --httpPort=8080
+            --prefix=/
+          
+        # 플러그인 설치
+        - name: JENKINS_UC
+          value: "https://updates.jenkins.io"
+          
+        # kubectl PATH 추가 (Jenkins 홈의 bin 디렉토리)
+        - name: PATH
+          value: "/var/jenkins_home/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+          
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+            
+        volumeMounts:
+        # Jenkins 홈 디렉토리 (영구 저장)
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+          
+        # containerd 소켓 (컨테이너 빌드용)
+        - name: containerd-sock
+          mountPath: /run/containerd/containerd.sock
+          
+        # 헬스체크 설정
+        livenessProbe:
+          httpGet:
+            path: /login
+            port: 8080
+          initialDelaySeconds: 90
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 5
+          
+        readinessProbe:
+          httpGet:
+            path: /login
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+          
+      volumes:
+      # Jenkins 데이터 영구 저장
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-pvc
+          
+      # containerd 소켓 (워커노드의 containerd 런타임 접근)
+      - name: containerd-sock
+        hostPath:
+          path: /run/containerd/containerd.sock
+          type: Socket
+          
+      # 재시작 정책
+      restartPolicy: Always
+      
+      # DNS 설정
+      dnsPolicy: ClusterFirst
+      
+      # 종료 대기 시간
+      terminationGracePeriodSeconds: 30 

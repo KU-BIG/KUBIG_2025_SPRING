@@ -1,0 +1,83 @@
+---
+# Jenkins ClusterIP Service (내부 통신용)
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  namespace: jenkins
+  labels:
+    app: jenkins
+    component: master
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+  - name: jnlp
+    port: 50000
+    targetPort: 50000
+    protocol: TCP
+  selector:
+    app: jenkins
+    component: master
+
+---
+# Jenkins NodePort Service (외부 접근용)
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-nodeport
+  namespace: jenkins
+  labels:
+    app: jenkins
+    component: master
+    service-type: external
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+    nodePort: 30808  # 외부 포트 (30000-32767 범위)
+  - name: jnlp
+    port: 50000
+    targetPort: 50000
+    protocol: TCP
+    nodePort: 30850  # 에이전트 연결용 포트
+  selector:
+    app: jenkins
+    component: master
+
+---
+# Jenkins LoadBalancer Service (선택적 - AWS ELB 사용시)
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-loadbalancer
+  namespace: jenkins
+  labels:
+    app: jenkins
+    component: master
+    service-type: loadbalancer
+  annotations:
+    # AWS Load Balancer 설정
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+    protocol: TCP
+  - name: https
+    port: 443
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: jenkins
+    component: master 

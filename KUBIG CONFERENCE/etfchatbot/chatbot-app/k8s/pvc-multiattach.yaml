@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: etf-chatbot-data-multi
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+    component: data-storage
+spec:
+  accessModes:
+    - ReadWriteMany  # Multi-Attach 지원
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: ebs-multi-attach-sc  # Multi-Attach 지원 StorageClass 

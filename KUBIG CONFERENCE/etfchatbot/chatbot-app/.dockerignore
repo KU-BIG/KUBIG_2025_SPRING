@@ -1,0 +1,53 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+
+# 개발환경
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.coverage
+.nyc_output
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# 데이터 파일들 (S3에서 다운로드 받음)
+data/vectordb/
+data/etf_database.sqlite
+data/etf_mapping.json
+
+# 로그 파일
+*.log
+logs/
+
+# 임시 파일
+*.tmp
+*.temp
+tmp/
+temp/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db 

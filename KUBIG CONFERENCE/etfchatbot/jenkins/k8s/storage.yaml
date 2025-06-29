@@ -1,0 +1,64 @@
+---
+# Jenkins PersistentVolumeClaim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-pvc
+  namespace: jenkins
+  labels:
+    app: jenkins
+    component: storage
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  # AWS EBS CSI StorageClass (자동 설치됨)
+  storageClassName: ebs-csi-default-sc
+
+---
+# Jenkins ConfigMap for initial configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-config
+  namespace: jenkins
+  labels:
+    app: jenkins
+data:
+  # Jenkins 기본 설정
+  jenkins.yaml: |
+    jenkins:
+      systemMessage: "ETF 챗봇 프로젝트 CI/CD Jenkins"
+      numExecutors: 0
+      mode: NORMAL
+      scmCheckoutRetryCount: 3
+      
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          serverUrl: "https://kubernetes.default:443"
+          namespace: "jenkins"
+          jenkinsUrl: "http://jenkins:8080"
+          jenkinsTunnel: "jenkins:50000"
+          connectTimeout: 60
+          readTimeout: 60
+          maxRequestsPerHostStr: 32
+          
+    security:
+      globalJobDslSecurityConfiguration:
+        useScriptSecurity: false
+        
+  # 플러그인 목록
+  plugins.txt: |
+    kubernetes:4053.v330de1da_5d4f
+    workflow-aggregator:596.v8c21c963d92d
+    blueocean:1.25.9
+    github:1.37.3.1
+    docker-workflow:563.vd5d2e5c4007f
+    pipeline-stage-view:2.25
+    build-timeout:1.27
+    timestamper:1.25
+    ws-cleanup:0.45
+    configuration-as-code:1647.ve39ca_b_829b_42 

@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: etf-chatbot
+  labels:
+    name: etf-chatbot
+    project: conference-25ss
+    environment: production
+
+---
+# ETF Chatbot Service Account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: etf-chatbot
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+
+---
+# Role for ETF Chatbot
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: etf-chatbot-role
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/log", "pods/exec"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["persistentvolumeclaims"]
+  verbs: ["get", "list", "watch", "create", "update", "patch"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "watch"]
+
+---
+# RoleBinding for ETF Chatbot
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: etf-chatbot-binding
+  namespace: etf-chatbot
+  labels:
+    app: etf-chatbot
+subjects:
+- kind: ServiceAccount
+  name: etf-chatbot
+  namespace: etf-chatbot
+roleRef:
+  kind: Role
+  name: etf-chatbot-role
+  apiGroup: rbac.authorization.k8s.io 

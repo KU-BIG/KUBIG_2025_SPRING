@@ -1,0 +1,13 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-multi-attach-sc
+provisioner: ebs.csi.aws.com
+parameters:
+  type: io2  # Multi-Attach를 지원하는 볼륨 타입
+  fsType: ext4
+  multiAttach: "true"  # Multi-Attach 활성화
+  encrypted: "true"
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+reclaimPolicy: Delete 
