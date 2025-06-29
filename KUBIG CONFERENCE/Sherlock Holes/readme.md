@@ -12,15 +12,11 @@
 
 ```
 Sherlock Holes
-├─ chatbot.py
-├─ data
-│  ├─ chromadb.py
-│  ├─ crawling_words.ipynb
-│  ├─ layout_analyzer.py
-│  └─ policy_crawling_and_attached_file_save.py
-├─ download_db.py
-├─ README.md
-└─ requirements.txt
+├─ 1. Geo-Coding, Preprocessing.ipynb
+├─ 2. 전처리, 데이터 병합.ipynb
+├─ 3. modeling.ipynb
+├─ 4. 포트홀 예측 리포트.ipynb
+└─ README.md
 ```
 
 ## Authors
