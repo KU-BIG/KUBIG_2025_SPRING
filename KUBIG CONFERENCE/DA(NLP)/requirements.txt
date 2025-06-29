@@ -1,0 +1,10 @@
+transformers==4.36.2
+datasets
+sentence-transformers
+torch
+accelerate
+bitsandbytes
+konlpy
+korpora
+huggingface_hub
+dataset
