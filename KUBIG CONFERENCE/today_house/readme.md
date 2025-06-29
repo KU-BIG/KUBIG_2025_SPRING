@@ -6,27 +6,27 @@
 - ✅ Streamlit 기반 챗봇 인터페이스
 
 # 실행방법
-## 패키지 설치
-!pip install selenium
-!apt-get update
+## 패키지 설치(Colab 환경에서 실행)
+!pip install selenium  
+!apt-get update  
 
-!apt install chromium-chromedriver
-!cp /usr/lib/chromium-browser/chromedriver '/content/drive/MyDrive/Colab Notebooks'
-!pip install chromedriver-autoinstaller
+!apt install chromium-chromedriver  
+!cp /usr/lib/chromium-browser/chromedriver '/content/drive/MyDrive/Colab Notebooks'  
+!pip install chromedriver-autoinstaller  
 
-!pip install bitsandbytes
+!pip install bitsandbytes  
 
-!pip install streamlit pyngrok
+!pip install streamlit pyngrok  
 
 ## Mecab 설치
-!git clone https://github.com/SOMJANG/Mecab-ko-for-Google-Colab.git
-cd Mecab-ko-for-Google-Colab
-!bash install_mecab-ko_on_colab_light_220429.sh
+!git clone https://github.com/SOMJANG/Mecab-ko-for-Google-Colab.git  
+cd Mecab-ko-for-Google-Colab  
+!bash install_mecab-ko_on_colab_light_220429.sh  
 
-!apt-get update
-!apt-get install g++ openjdk-8-jdk
-!pip3 install konlpy JPype1-py3
-!bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+!apt-get update  
+!apt-get install g++ openjdk-8-jdk  
+!pip3 install konlpy JPype1-py3  
+!bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)  
 
 ## 어플리케이션 실행
 streamlit run app.py
