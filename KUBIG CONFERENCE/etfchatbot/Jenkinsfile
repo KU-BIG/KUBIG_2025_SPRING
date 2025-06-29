@@ -1,0 +1,687 @@
+pipeline {
+    agent any
+    
+    environment {
+        PYTHON_VERSION = '3.11'
+        AWS_REGION = 'ap-northeast-3'
+        DOCKER_IMAGE = 'junseok0913/25ss-conference-project'
+        DOCKER_BUILDKIT = '1'  /* BuildKit 활성화 */
+        VENV_PATH = '/opt/venvs/mainpy311'
+        PATH      = "/opt/venvs/mainpy311/bin:${env.PATH}"
+        
+        // 전역 Credentials 설정 (모든 스테이지에서 사용 가능)
+        OPENAI_API_KEY = credentials('openai-api-key')
+        AWS_S3_BUCKET = credentials('aws-s3-bucket')
+        MONGO_URI = credentials('mongo-uri')
+        UPSTAGE_API_KEY = credentials('upstage-api-key')
+        EC2_HOST = credentials('ec2-host')
+        EC2_PORT = credentials('ec2-port')
+        DB_USER = credentials('db-user')
+        DB_PASSWORD = credentials('db-password')
+    }
+
+    parameters {
+        choice(
+            name: 'UPDATE_TYPE',
+            choices: ['all','crawling-only', 'processing-only', 'docker-only', 'ec2-only'],
+            description: '업데이트 유형을 선택하세요'
+        )
+        string(
+            name: 'PRODUCT_PROCESS_LIMIT',
+            defaultValue: '1',
+            description: '한 번에 처리할 상품의 최대 개수'
+        )
+        string(
+            name: 'PRODUCT_DOWNLOAD_LIMIT',
+            defaultValue: '2',
+            description: 'MongoDB에 저장할 ETF 상품의 최대 개수'
+        )
+    }
+/*
+    triggers {
+        cron('0 13 * * *')
+    }
+*/
+    stages {
+        stage('Setup Chrome') {
+            steps {
+                sh '''
+                    echo "=== Installing Chrome and dependencies ==="
+                    
+                    # snap 제거
+                    sudo snap remove chromium || true
+                    
+                    # 기존 Chrome 관련 패키지 제거
+                    sudo apt-get remove -y chromium-browser chromium-driver || true
+                    sudo apt-get autoremove -y
+                    
+                    # 특정 버전 설치
+                    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+                    sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+                    
+                    # Chrome 버전 확인
+                    CHROME_VERSION=$(google-chrome --version | cut -d " " -f3)
+                    echo "Chrome version: $CHROME_VERSION"
+                    
+                    # ChromeDriver 설치
+                    CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+                    wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+                    unzip -o chromedriver_linux64.zip
+                    sudo mv -f chromedriver /usr/local/bin/chromedriver
+                    sudo chmod +x /usr/local/bin/chromedriver
+                    
+                    # Xvfb 설치 및 설정
+                    sudo apt-get install -y xvfb
+                    export DISPLAY=:99
+                    Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
+                    
+                    # 권한 설정
+                    sudo chmod -R 777 /var/lib/jenkins/.wdm/
+                    sudo chown -R jenkins:jenkins /var/lib/jenkins/.wdm/
+                    
+                    # 버전 확인
+                    google-chrome --version
+                    chromedriver --version
+                '''
+            }
+        }
+
+        stage('Verify venv') {
+            steps {
+                sh '''
+                    python -V              # → 3.11.x (mainpy311)
+                    pip   -V              # → mainpy311 pip
+                '''
+            }
+        }
+
+        stage('Daily Crawling') {
+            when {
+                anyOf {
+                    allOf {
+                        triggeredBy 'TimerTrigger'
+                        expression { Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == 22 }
+                    }
+                    expression {
+                        return params.UPDATE_TYPE in ['all', 'crawling-only']
+                    }
+                }
+            }
+            steps {
+                sh '''
+                    export PYTHONPATH="${WORKSPACE}"
+
+                    echo "=== Starting Daily Crawling ==="
+                    sudo apt-get update && sudo apt-get install -y chromium-browser
+
+                    # xvfb-run 으로 가상의 디스플레이에서 크롤링 실행
+                    python3 -m src.data_collection.etf_crawling --limit ${PRODUCT_DOWNLOAD_LIMIT}
+
+                    echo "=== Crawling Completed ==="
+                '''
+            }
+        }
+        stage('System Cleanup') {
+            steps {
+                sh '''
+                    set -e
+                    sudo chown -R jenkins:jenkins "${WORKSPACE}"
+                    chmod -R u+rwX "$WORKSPACE" || true
+
+                    # 중요 디렉토리 제외하고 작업 공간 정리
+                    find "$WORKSPACE" -mindepth 1 -maxdepth 1 ! -name 'data' -exec rm -rf {} +
+                    
+                    echo "=== Docker Cleanup ==="
+                    
+                    # 중지된 컨테이너 제거 (mongodb 제외)
+                    docker ps -aq --filter "status=exited" \
+                    | grep -v mongodb \
+                    | xargs -r docker rm -f
+
+                    # 사용하지 않는 볼륨 제거 (in-use인 mongodb 볼륨은 남음)
+                    docker volume prune -f
+                                        
+                    # default 빌더를 제외한 모든 빌더 이름 추출 및 제거
+                    docker buildx ls | while read line; do
+                        if echo "$line" | grep -v "default" | grep -v "NAME" | grep -q "docker"; then
+                            builder=$(echo "$line" | awk '{print $1}' | sed "s/*$//")
+                            if [ ! -z "$builder" ]; then
+                                echo "Removing builder: $builder"
+                                docker buildx rm -f "$builder" || true
+                            fi
+                        fi
+                    done
+                    
+                    # buildx 캐시 정리
+                    docker buildx prune -f --all || true
+                    
+                    # buildx 상태 파일 직접 정리
+                    rm -rf /var/lib/buildkit/runc-overlayfs/snapshots/* || true
+                    rm -rf /var/lib/docker/buildx/* || true
+                    
+                    # 새로운 buildx 빌더 생성
+                    echo "=== Creating new buildx builder ==="
+                    docker buildx create --use --name fresh-builder
+                    docker buildx inspect
+
+                    # 시스템 상태 확인
+                    echo "=== System Status ==="
+                    df -h
+                    free -h
+                    docker system df
+                '''
+            }
+        }
+        
+    
+        
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        /*
+        stage('Setup Python') {
+            steps {
+                script {
+                    sh '/usr/bin/python3 --version'
+                }
+            }
+        }
+        */
+        
+        stage('Configure AWS') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'aws-credentials',
+                        usernameVariable: 'AWS_ACCESS_KEY_ID',
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                    )
+                ]) {
+                    sh """
+                        aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+                        aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+                        aws configure set region ${AWS_REGION}
+                    """
+                }
+            }
+        }
+        
+        stage('Install Dependencies') { 
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    sudo apt-get update && sudo apt-get install -y \
+                        curl \
+                        unzip \
+                        tar \
+                        build-essential \
+                        g++
+                    
+                        if ! command -v aws >/dev/null ; then
+                            echo "[INFO] Installing AWS CLI v2 …"
+                            curl -sSL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
+                                -o awscliv2.zip
+                            sudo unzip -q awscliv2.zip
+                            sudo ./aws/install                 # 최초 설치
+                            sudo rm -rf aws awscliv2.zip
+                        else
+                            echo "[INFO] AWS CLI already present → $(aws --version)"
+                            fi
+                    
+                    python -V   # 확인: 3.11.x (mainpy311)
+                '''
+            }
+        }
+
+        stage('Setup Environment') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    echo "Checking MongoDB environment variables:"
+                    echo "EC2_HOST: $EC2_HOST"
+                    echo "EC2_PORT: $EC2_PORT"
+                    echo "DB_USER: $DB_USER"
+                    
+                    # 필요한 디렉토리 한 번에 생성
+                    mkdir -p data/pdf data/vectordb data/etf_raw data
+                    
+                    echo "=== 디렉토리 구조 확인 ==="
+                    ls -la data/
+                '''
+            }
+        }
+        
+        stage('Download Existing VectorDB') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    echo "=== S3에서 VectorDB 다운로드 시작 ==="
+                    
+                    # 디렉토리 존재 확인 및 생성
+                    mkdir -p data/vectordb
+                    
+                    # S3 버킷 내용물 확인
+                    echo "=== S3 버킷 내용 확인 ==="
+                    aws s3 ls s3://${AWS_S3_BUCKET}/vectordb/ --recursive
+                    
+                    # 파일 다운로드
+                    echo "=== VectorDB 파일 다운로드 ==="
+                    aws s3 sync s3://${AWS_S3_BUCKET}/vectordb/ data/vectordb/ \
+                        --exclude "*" \
+                        --include "*.sqlite3" \
+                        --include "*.json" \
+                        --include "*.bin" \
+                        --include "*.pkl" \
+                        --include "index/*"
+                    
+                    # 다운로드 결과 확인
+                    echo "=== 다운로드된 파일 확인 ==="
+                    ls -la data/vectordb/
+                    
+                    if [ ! -f "data/vectordb/chroma.sqlite3" ]; then
+                        echo "초기 실행: chroma.sqlite3가 없습니다. 앞으로 생성됩니다."
+                    fi
+                '''
+            }
+        }
+        
+        stage('Download Existing ETF Database') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    echo "=== S3에서 ETF 데이터베이스 다운로드 시작 ==="
+                    
+                    # ETF 데이터베이스 다운로드
+                    aws s3 cp s3://${AWS_S3_BUCKET}/etf_database/etf_database.sqlite data/etf_database.sqlite || echo "기존 ETF 데이터베이스가 없음, 새로 생성됩니다."
+                    
+                    if [ -f "data/etf_database.sqlite" ]; then
+                        echo "=== 기존 ETF 데이터베이스 상태 ==="
+                        ls -lh data/etf_database.sqlite
+                        echo "ETF 데이터베이스 다운로드 완료"
+                    else
+                        echo "새로운 ETF 데이터베이스를 생성합니다."
+                    fi
+                '''
+            }
+        }
+        
+        stage('Download Files') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+                    echo "Running with environment:"
+                    echo "EC2_HOST=$EC2_HOST"
+                    echo "EC2_PORT=$EC2_PORT"
+                    echo "DB_USER=$DB_USER"
+                    python3 src/utils/mongodb_utils.py --limit ${PRODUCT_DOWNLOAD_LIMIT}
+                '''
+            }
+        }
+        
+        stage('Update ETF Mapping') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                sh '''
+                    echo "=== ETF 매핑 데이터 업데이트 시작 ==="
+                    
+                    # MongoDB에서 ETF 매핑 데이터 가져오기
+                    export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+                    export MONGODB_HOST=$EC2_HOST
+                    export MONGODB_PORT=$EC2_PORT
+                    export EC2_HOST=$EC2_HOST
+                    export EC2_PORT=$EC2_PORT
+                    export DB_USER=$DB_USER
+                    export DB_PASSWORD=$DB_PASSWORD
+                    
+                    echo "MongoDB 연결 정보: $EC2_HOST:$EC2_PORT (User: $DB_USER)"
+                    
+                    # 기존 매핑 파일 백업 (있는 경우)
+                    if [ -f "data/etf_mapping.json" ]; then
+                        echo "기존 ETF 매핑 파일 백업"
+                        cp data/etf_mapping.json data/etf_mapping_backup.json
+                        echo "기존 매핑 파일 크기: $(ls -lh data/etf_mapping.json | awk '{print $5}')"
+                    fi
+                    
+                    # MongoDB에서 최신 매핑 데이터 업데이트
+                    python3 scripts/update_etf_mapping.py
+                    
+                    # 업데이트 결과 확인
+                    if [ -f "data/etf_mapping.json" ]; then
+                        echo "=== ETF 매핑 업데이트 완료 ==="
+                        echo "매핑 파일 크기: $(ls -lh data/etf_mapping.json | awk '{print $5}')"
+                    else
+                        echo "경고: ETF 매핑 파일이 생성되지 않았습니다"
+                    fi
+                '''
+            }
+        }
+        
+        stage('Process XLS Files') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only'] 
+                }
+            }
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'aws-credentials',
+                        usernameVariable: 'AWS_ACCESS_KEY_ID',
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                    )
+                ]) {
+                    sh '''
+                        echo "=== ETF XLS 파일 처리 시작 ==="
+                        
+                        # AWS 설정 확인
+                        aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+                        aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+                        aws configure set region ${AWS_REGION}
+                        
+                        # XLS 처리 전 상태 확인
+                        if [ -f "data/etf_database.sqlite" ]; then
+                            echo "기존 ETF 데이터베이스 크기: $(ls -lh data/etf_database.sqlite | awk '{print $5}')"
+                        fi
+                        
+                        # data/etf_raw 디렉토리 내용 확인
+                        echo "=== data/etf_raw 디렉토리 구조 확인 ==="
+                        if [ -d "data/etf_raw" ]; then
+                            echo "ETF RAW 데이터 디렉토리별 파일 수:"
+                            find data/etf_raw -name "*.xls" | head -10
+                            echo "총 XLS 파일 수: $(find data/etf_raw -name "*.xls" | wc -l)"
+                            echo "ticker별 디렉토리 수: $(find data/etf_raw -mindepth 1 -maxdepth 1 -type d | wc -l)"
+                        else
+                            echo "경고: data/etf_raw 디렉토리가 존재하지 않습니다"
+                            mkdir -p data/etf_raw
+                        fi
+                        
+                        # XLS 파일 처리
+                        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+                        echo "=== XLS 파일 처리 실행 ==="
+                        
+                        # XLS 처리 실행 (StateManager가 자동으로 중복 처리 방지)
+                        echo "XLS 처리 시작 - StateManager가 자동으로 중복 처리를 방지합니다"
+                        if python3 scripts/process_xls.py \
+                            --directory data/etf_raw \
+                            --limit ${PRODUCT_PROCESS_LIMIT}; then
+                            echo "XLS 파일 처리 성공"
+                        else
+                            echo "경고: XLS 파일 처리 중 오류 발생 (exit code: $?)"
+                            echo "데이터베이스 상태를 확인합니다..."
+                        fi
+                        
+                        # 처리 후 상태 확인 (XLS 처리 성공 여부와 관계없이 실행)
+                        echo "=== XLS 처리 후 ETF 데이터베이스 상태 ==="
+                        if [ -f "data/etf_database.sqlite" ]; then
+                            ls -lh data/etf_database.sqlite
+                            echo "ETF 데이터베이스 처리 완료"
+                            
+                            # 데이터베이스 내용 간단 확인
+                            echo "=== 데이터베이스 테이블 확인 ==="
+                            if python3 test/test_etf_database.py; then
+                                echo "데이터베이스 테스트 성공"
+                            else
+                                echo "경고: 데이터베이스 테스트 실패 (exit code: $?)"
+                            fi
+                        else
+                            echo "경고: ETF 데이터베이스가 생성되지 않았습니다"
+                        fi
+                    '''
+                }
+            }
+        }
+        
+        stage('Process PDFs') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only']
+                }
+            }
+            steps {
+                sh '''
+                    # jq 설치
+                    sudo apt-get update && sudo apt-get install -y jq   
+                    
+                    # PDF 처리 전 ChromaDB 상태 확인
+                    echo "=== PDF 처리 전 ChromaDB 상태 ==="
+                    if [ -f data/vectordb/chroma.sqlite3 ]; then
+                        ls -lh data/vectordb/chroma.sqlite3
+                        md5sum data/vectordb/chroma.sqlite3
+                    else
+                        echo "초기 실행: chroma.sqlite3가 없습니다. 앞으로 생성됩니다."
+                    fi
+                    
+                    # ChromaDB 컬렉션 상태 확인
+                    echo "=== ChromaDB 처리 전 상태 확인 ==="
+                    python3 -c "
+import chromadb
+try:
+    client = chromadb.PersistentClient(path='data/vectordb')
+    collections = client.list_collections()
+    print(f'기존 컬렉션 수: {len(collections)}')
+    for col in collections:
+        print(f'  - {col.name}: {col.count()}개 문서')
+    if not collections:
+        print('초기 실행: 기존 컬렉션이 없습니다.')
+except Exception as e:
+    print(f'ChromaDB 상태 확인 오류: {e}')
+"
+                    
+                    # PDF 처리 및 ChromaDB 업데이트 (자동 중복 방지 포함)
+                    echo "UPSTAGE_API_KEY: $UPSTAGE_API_KEY"
+                    export OPENAI_API_KEY="$OPENAI_API_KEY"
+                    echo "PDF 처리 시작 - StateManager가 자동으로 중복 처리를 방지합니다"
+                    
+                    # ChromaDB 상태 디버깅 (처리 전)
+                    echo "=== ChromaDB 디버깅 (처리 전) ==="
+                    python3 scripts/debug_chromadb.py --vectordb-path data/vectordb || echo "디버깅 스크립트 실행 실패"
+                    
+                    # PDF 처리 실행
+                    python3 scripts/process_pdfs.py --limit ${PRODUCT_PROCESS_LIMIT}
+                    
+                    # ChromaDB 상태 디버깅 (처리 후)
+                    echo "=== ChromaDB 디버깅 (처리 후) ==="
+                    python3 scripts/debug_chromadb.py --vectordb-path data/vectordb || echo "디버깅 스크립트 실행 실패"
+                    
+                    # PDF 처리 후 ChromaDB 상태 확인
+                    echo "=== PDF 처리 후 ChromaDB 상태 ==="
+                    ls -lh data/vectordb/chroma.sqlite3
+                    md5sum data/vectordb/chroma.sqlite3 
+                    
+                    # ChromaDB 컬렉션 상태 재확인
+                    echo "=== ChromaDB 처리 후 상태 확인 ==="
+                    python3 -c "
+import chromadb
+try:
+    client = chromadb.PersistentClient(path='data/vectordb')
+    collections = client.list_collections()
+    print(f'처리 후 컬렉션 수: {len(collections)}')
+    total_docs = 0
+    for col in collections:
+        count = col.count()
+        total_docs += count
+        print(f'  - {col.name}: {count}개 문서')
+    print(f'전체 문서 수: {total_docs}')
+    if not collections:
+        print('경고: 처리 후에도 컬렉션이 없습니다!')
+except Exception as e:
+    print(f'ChromaDB 상태 확인 오류: {e}')
+"
+                    
+                    # 상태 확인
+                    if [ -f "data/vectordb/processed_states.json" ]; then
+                        echo "=== processed_states.json 상태 ==="
+                        echo "파일 크기: $(ls -lh data/vectordb/processed_states.json | awk '{print $5}')"
+                        echo "수정 시간: $(ls -l data/vectordb/processed_states.json | awk '{print $6, $7, $8}')"
+                        echo "처리된 파일 수: $(jq 'length' data/vectordb/processed_states.json)"
+                    fi
+                '''
+            }
+        }
+        
+        stage('Upload to S3') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'processing-only']
+                }
+            }
+            steps {
+                sh '''
+                    echo "=== S3 업로드 시작 ==="
+                    
+                    # ChromaDB 디렉토리 내용 확인
+                    echo "vectordb 디렉토리 내용:"
+                    ls -la data/vectordb/
+                    
+                    # ChromaDB 파일들이 모두 업로드되도록 명시적으로 지정 
+                    echo "ChromaDB 업로드 시작..."
+                    aws s3 sync data/vectordb/ s3://${AWS_S3_BUCKET}/vectordb/ \
+                        --exclude "*.gitkeep" \
+                        --exclude "*.bak" \
+                        --exclude "*_backup*" \
+                        --include "chroma.sqlite3" \
+                        --include "processed_states.json" \
+                        --include "index/*" \
+                        --exact-timestamps
+                    
+                    # ETF 데이터베이스 업로드 (XLS 처리 결과)
+                    echo "=== ETF 데이터베이스 업로드 시작 ==="
+                    if [ -f "data/etf_database.sqlite" ]; then
+                        echo "ETF 데이터베이스 파일 크기: $(ls -lh data/etf_database.sqlite | awk '{print $5}')"
+                        aws s3 cp data/etf_database.sqlite s3://${AWS_S3_BUCKET}/etf_database/etf_database.sqlite
+                        echo "ETF 데이터베이스 S3 업로드 완료"
+                    else
+                        echo "경고: ETF 데이터베이스 파일이 존재하지 않습니다"
+                    fi
+                    
+                    # ETF 매핑 파일 업로드
+                    echo "=== ETF 매핑 파일 업로드 시작 ==="
+                    if [ -f "data/etf_mapping.json" ]; then
+                        echo "ETF 매핑 파일 크기: $(ls -lh data/etf_mapping.json | awk '{print $5}')"
+                        aws s3 cp data/etf_mapping.json s3://${AWS_S3_BUCKET}/etf_mapping/etf_mapping.json
+                        echo "ETF 매핑 파일 S3 업로드 완료"
+                    else
+                        echo "경고: ETF 매핑 파일이 존재하지 않습니다"
+                    fi
+                    
+                    # 업로드 확인
+                    echo "=== S3 업로드된 파일 목록 ==="
+                    echo "VectorDB 파일들:"
+                    aws s3 ls s3://${AWS_S3_BUCKET}/vectordb/ --recursive
+                    echo "ETF 데이터베이스 파일들:"
+                    aws s3 ls s3://${AWS_S3_BUCKET}/etf_database/ --recursive
+                    echo "ETF 매핑 파일들:"
+                    aws s3 ls s3://${AWS_S3_BUCKET}/etf_mapping/ --recursive
+                    
+                    echo "S3 업로드 완료"
+                '''
+            }
+        }
+        /* EC2 서빙 때 주석 해제할 것
+        stage('Build and Push Docker') {
+            when {
+                expression { 
+                    return params.UPDATE_TYPE in ['all', 'docker-only']
+                }
+            }
+            steps {
+                script {
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'docker-hub-credentials',
+                            usernameVariable: 'DOCKER_USERNAME',
+                            passwordVariable: 'DOCKER_PASSWORD'
+                        )
+                    ]) {
+                        sh '''
+                            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                            
+                            # Docker 이미지 빌드 및 푸시
+                            docker build -t ${DOCKER_IMAGE}:latest .
+                            docker push ${DOCKER_IMAGE}:latest
+                            
+                            # 빌드 완료 확인
+                            echo "Docker 이미지가 성공적으로 빌드되어 Docker Hub에 푸시되었습니다."
+                            echo "이미지: ${DOCKER_IMAGE}:latest"
+                        '''
+                    }
+                }
+            }
+        }
+        */
+        stage('Check AWS Configuration') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'aws-credentials',
+                        usernameVariable: 'AWS_ACCESS_KEY_ID',
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                    )
+                ]) {
+                    sh '''
+                        echo "=== AWS 설정 확인 ==="
+                        aws --version
+                        aws configure list
+                        aws sts get-caller-identity
+                    '''
+                }
+            }
+        }
+        
+        /* 앞으로 이동
+        stage('Setup Python Environment') {
+            steps {
+                sh '''
+                    python3 -m pip install --upgrade pip
+                    pip3 install -r requirements.txt
+                '''
+            }
+        }
+        */
+        
+        stage('Set Permissions') {
+            steps {
+                sh '''
+                    # data 디렉토리가 존재할 때만 권한 설정
+                    if [ -d "${WORKSPACE}/data" ]; then
+                        echo "Setting permissions for data directory..."
+                        chown -R $(whoami):$(whoami) ${WORKSPACE}/data
+                        chmod -R 755 ${WORKSPACE}/data
+                        echo "Permissions set successfully"
+                    else
+                        echo "Data directory does not exist, skipping permission setting"
+                    fi
+                '''
+            }
+        }
+    }
+   
+} 
