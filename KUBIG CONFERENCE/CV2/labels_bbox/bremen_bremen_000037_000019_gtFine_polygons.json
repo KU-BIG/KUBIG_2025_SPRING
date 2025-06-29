@@ -1,0 +1,278 @@
+{
+  "file_name": "bremen_bremen_000037_000019_leftImg8bit.png",
+  "image_id": 307,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        1918,
+        368,
+        130,
+        64
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        454,
+        2048,
+        570
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        410,
+        2048,
+        90
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1931,
+        463
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        155,
+        265,
+        11,
+        192
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        144,
+        250,
+        22,
+        33
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        145,
+        287,
+        23,
+        53
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        0,
+        494,
+        756,
+        26
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        297,
+        421,
+        6,
+        42
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        27,
+        417,
+        91,
+        86
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        191,
+        443,
+        11,
+        54
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        116,
+        447,
+        8,
+        51
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        476,
+        0,
+        51,
+        514
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        463,
+        240,
+        64,
+        63
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        439,
+        160,
+        38,
+        67
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        436,
+        224,
+        41,
+        26
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1910,
+        0,
+        138,
+        392
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        450,
+        165,
+        14,
+        354
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1716,
+        0,
+        32,
+        475
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1929,
+        395,
+        119,
+        10
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1973,
+        333,
+        25,
+        97
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1746,
+        0,
+        302,
+        464
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1904,
+        309,
+        108,
+        165
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1999,
+        341,
+        29,
+        91
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        594,
+        359,
+        54,
+        107
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1814,
+        337,
+        34,
+        113
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1834,
+        334,
+        77,
+        224
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        575,
+        388,
+        5,
+        63
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

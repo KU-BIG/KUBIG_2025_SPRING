@@ -1,0 +1,566 @@
+{
+  "file_name": "aachen_aachen_000137_000019_leftImg8bit.png",
+  "image_id": 137,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        454,
+        2047,
+        569
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        498,
+        1083,
+        301
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1294,
+        462,
+        753,
+        316
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        941,
+        0,
+        1004,
+        379
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        958,
+        0,
+        35,
+        32
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1434,
+        479,
+        150,
+        19
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1246,
+        582
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1114,
+        0,
+        933,
+        626
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1144,
+        462,
+        48,
+        17
+      ],
+      "category": "cargroup"
+    },
+    {
+      "bbox": [
+        1144,
+        464,
+        44,
+        25
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1181,
+        479,
+        43,
+        36
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1234,
+        462,
+        23,
+        22
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1239,
+        465,
+        25,
+        20
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1248,
+        466,
+        32,
+        25
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1241,
+        478,
+        28,
+        31
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1247,
+        480,
+        24,
+        33
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1258,
+        475,
+        58,
+        58
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1263,
+        491,
+        53,
+        48
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1276,
+        500,
+        38,
+        46
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1284,
+        505,
+        22,
+        46
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1289,
+        499,
+        64,
+        61
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1317,
+        537,
+        19,
+        7
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1327,
+        502,
+        66,
+        88
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1346,
+        497,
+        88,
+        108
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1376,
+        500,
+        191,
+        131
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1464,
+        577,
+        52,
+        15
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1560,
+        581,
+        25,
+        23
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1600,
+        595,
+        34,
+        18
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1686,
+        524,
+        55,
+        28
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1620,
+        526,
+        29,
+        25
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1649,
+        552,
+        398,
+        355
+      ],
+      "category": "motorcycle"
+    },
+    {
+      "bbox": [
+        1671,
+        891,
+        376,
+        132
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1875,
+        515,
+        25,
+        53
+      ],
+      "category": "persongroup"
+    },
+    {
+      "bbox": [
+        1796,
+        528,
+        13,
+        26
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1561,
+        467,
+        2,
+        30
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1561,
+        463,
+        6,
+        10
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1571,
+        474,
+        52,
+        27
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1596,
+        467,
+        32,
+        52
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1501,
+        472,
+        34,
+        27
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1123,
+        466,
+        42,
+        37
+      ],
+      "category": "cargroup"
+    },
+    {
+      "bbox": [
+        1110,
+        477,
+        39,
+        33
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1098,
+        481,
+        38,
+        38
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1087,
+        485,
+        46,
+        39
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1071,
+        486,
+        50,
+        42
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1080,
+        492,
+        33,
+        44
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1048,
+        480,
+        59,
+        67
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1026,
+        491,
+        73,
+        65
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1031,
+        498,
+        47,
+        62
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        995,
+        493,
+        65,
+        72
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        934,
+        478,
+        112,
+        97
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        965,
+        546,
+        28,
+        7
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        877,
+        472,
+        34,
+        81
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        878,
+        328,
+        46,
+        240
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        756,
+        504,
+        69,
+        45
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        709,
+        453,
+        66,
+        85
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        0,
+        368,
+        172,
+        201
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        709,
+        527,
+        132,
+        26
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        742,
+        439
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        519,
+        436,
+        196,
+        116
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        455,
+        126,
+        271,
+        430
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

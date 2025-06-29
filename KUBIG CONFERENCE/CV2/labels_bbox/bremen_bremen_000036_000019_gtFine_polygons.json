@@ -1,0 +1,242 @@
+{
+  "file_name": "bremen_bremen_000036_000019_leftImg8bit.png",
+  "image_id": 306,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        389,
+        2048,
+        635
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        1349,
+        380,
+        471,
+        40
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1354,
+        449
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1331,
+        0,
+        717,
+        418
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1453,
+        362,
+        36,
+        33
+      ],
+      "category": "bicyclegroup"
+    },
+    {
+      "bbox": [
+        1476,
+        348,
+        18,
+        47
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1474,
+        300,
+        4,
+        93
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1476,
+        301,
+        21,
+        7
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        761,
+        437,
+        1287,
+        95
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1299,
+        459,
+        148,
+        11
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1600,
+        320,
+        4,
+        77
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1594,
+        301,
+        17,
+        25
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1175,
+        0,
+        653,
+        462
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1328,
+        297,
+        111,
+        173
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1807,
+        321,
+        59,
+        136
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1716,
+        213,
+        332,
+        256
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1736,
+        0,
+        312,
+        475
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1933,
+        278,
+        115,
+        215
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1145,
+        0,
+        35,
+        468
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1079,
+        331,
+        57,
+        107
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        0,
+        148,
+        497,
+        358
+      ],
+      "category": "bus"
+    },
+    {
+      "bbox": [
+        1661,
+        308,
+        62,
+        189
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        405,
+        453,
+        39,
+        14
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1352,
+        376,
+        2,
+        15
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

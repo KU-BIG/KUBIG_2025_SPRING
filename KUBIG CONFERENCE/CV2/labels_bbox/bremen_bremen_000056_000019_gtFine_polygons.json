@@ -1,0 +1,944 @@
+{
+  "file_name": "bremen_bremen_000056_000019_leftImg8bit.png",
+  "image_id": 326,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        660,
+        0,
+        375,
+        190
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        463,
+        2048,
+        561
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        696,
+        452,
+        1352,
+        483
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        474,
+        664,
+        550
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        496,
+        122,
+        450,
+        358
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        559,
+        453,
+        102,
+        19
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        564,
+        577
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        452,
+        401,
+        68,
+        16
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        113,
+        66,
+        41,
+        234
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        327,
+        463,
+        38,
+        61
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        267,
+        464,
+        33,
+        67
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        245,
+        462,
+        40,
+        72
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        156,
+        478,
+        49,
+        75
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        79,
+        477,
+        48,
+        91
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        566,
+        376,
+        12,
+        115
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        620,
+        383,
+        8,
+        99
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        877,
+        0,
+        1171,
+        553
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        643,
+        101,
+        287,
+        351
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        605,
+        433,
+        3,
+        40
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        597,
+        420,
+        17,
+        22
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        511,
+        434,
+        17,
+        49
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        527,
+        443,
+        19,
+        44
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        538,
+        436,
+        29,
+        66
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        393,
+        466,
+        26,
+        82
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        487,
+        439,
+        26,
+        38
+      ],
+      "category": "rider"
+    },
+    {
+      "bbox": [
+        483,
+        463,
+        33,
+        32
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        442,
+        38,
+        46,
+        270
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        450,
+        449,
+        22,
+        58
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        414,
+        442,
+        24,
+        61
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        427,
+        441,
+        27,
+        77
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        209,
+        426,
+        20,
+        19
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        173,
+        382,
+        64,
+        23
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        122,
+        347,
+        66,
+        42
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        169,
+        436,
+        69,
+        146
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        12,
+        501,
+        84,
+        87
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        0,
+        434,
+        62,
+        161
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        59,
+        425,
+        58,
+        172
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        730,
+        384,
+        34,
+        39
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        626,
+        469,
+        14,
+        32
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        363,
+        0,
+        531,
+        499
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        573,
+        454,
+        45,
+        46
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        584,
+        476,
+        18,
+        27
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        547,
+        479,
+        15,
+        29
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        514,
+        482,
+        19,
+        34
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        485,
+        486,
+        20,
+        38
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        460,
+        491,
+        18,
+        39
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        436,
+        494,
+        23,
+        46
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        406,
+        500,
+        26,
+        51
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        381,
+        506,
+        27,
+        47
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        363,
+        510,
+        33,
+        60
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        348,
+        516,
+        36,
+        72
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        325,
+        522,
+        45,
+        86
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        298,
+        531,
+        66,
+        111
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        251,
+        551,
+        78,
+        141
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        127,
+        587,
+        119,
+        209
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        759,
+        436,
+        56,
+        42
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1002,
+        169,
+        38,
+        94
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1071,
+        286,
+        41,
+        43
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1219,
+        78,
+        73,
+        103
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1229,
+        192,
+        68,
+        59
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1605,
+        95,
+        129,
+        76
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        653,
+        405,
+        111,
+        100
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        796,
+        283,
+        80,
+        200
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        737,
+        438,
+        102,
+        89
+      ],
+      "category": "bicyclegroup"
+    },
+    {
+      "bbox": [
+        965,
+        383,
+        39,
+        21
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        995,
+        362,
+        54,
+        25
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        954,
+        421,
+        21,
+        34
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1018,
+        439,
+        25,
+        29
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1059,
+        407,
+        29,
+        52
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1108,
+        429,
+        76,
+        51
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1089,
+        407,
+        29,
+        67
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1045,
+        408,
+        35,
+        67
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        901,
+        437,
+        162,
+        41
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        749,
+        214,
+        121,
+        312
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        735,
+        256,
+        37,
+        33
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        846,
+        249,
+        41,
+        35
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        716,
+        474,
+        25,
+        47
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        720,
+        479,
+        25,
+        49
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        739,
+        483,
+        28,
+        54
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        782,
+        483,
+        34,
+        64
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        800,
+        273,
+        328,
+        103
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        925,
+        365,
+        7,
+        116
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        980,
+        346,
+        12,
+        164
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        838,
+        464,
+        370,
+        99
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1240,
+        429,
+        59,
+        74
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1244,
+        441,
+        317,
+        92
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1469,
+        430,
+        68,
+        103
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1544,
+        436,
+        84,
+        108
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1438,
+        254,
+        241,
+        182
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1598,
+        350,
+        63,
+        193
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1633,
+        343,
+        103,
+        200
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1713,
+        453,
+        335,
+        218
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1639,
+        491,
+        86,
+        83
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1642,
+        437,
+        18,
+        63
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        211,
+        311,
+        46,
+        43
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1106,
+        496,
+        53,
+        107
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1310,
+        371,
+        90,
+        155
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1325,
+        509,
+        71,
+        137
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1640,
+        535,
+        100,
+        194
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        811,
+        379,
+        121,
+        175
+      ],
+      "category": "rider"
+    },
+    {
+      "bbox": [
+        851,
+        496,
+        56,
+        110
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1072,
+        161,
+        540,
+        206
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "file_name": "bremen_bremen_000024_000019_leftImg8bit.png",
+  "image_id": 294,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        500,
+        2048,
+        524
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        661,
+        0,
+        236,
+        212
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        499,
+        720,
+        467
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        732,
+        136,
+        98,
+        346
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        1,
+        790,
+        604
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        743,
+        510,
+        1305,
+        514
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        805,
+        474,
+        18,
+        28
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        716,
+        446,
+        103,
+        81
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        809,
+        0,
+        1239,
+        825
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1353,
+        176,
+        128,
+        123
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1261,
+        627,
+        67,
+        38
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1252,
+        580,
+        74,
+        58
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1894,
+        183,
+        153,
+        254
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1252,
+        580,
+        74,
+        58
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1452,
+        498,
+        145,
+        42
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1604,
+        490,
+        29,
+        57
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        812,
+        474,
+        12,
+        26
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

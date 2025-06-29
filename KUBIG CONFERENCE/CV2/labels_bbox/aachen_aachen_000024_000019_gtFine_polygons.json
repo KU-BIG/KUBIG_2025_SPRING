@@ -1,0 +1,278 @@
+{
+  "file_name": "aachen_aachen_000024_000019_leftImg8bit.png",
+  "image_id": 24,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        423,
+        2047,
+        600
+      ],
+      "category": "ground"
+    },
+    {
+      "bbox": [
+        858,
+        541,
+        322,
+        36
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2047,
+        577
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        291,
+        127,
+        35,
+        398
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        231,
+        135,
+        69,
+        58
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        235,
+        196,
+        65,
+        32
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1105,
+        315,
+        30,
+        292
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1117,
+        321,
+        70,
+        88
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1124,
+        402,
+        72,
+        68
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1126,
+        465,
+        73,
+        64
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1269,
+        52,
+        95,
+        132
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1181,
+        298,
+        35,
+        321
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1462,
+        172,
+        69,
+        72
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1154,
+        272,
+        56,
+        41
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1531,
+        392,
+        85,
+        210
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1488,
+        267,
+        73,
+        63
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1610,
+        267,
+        60,
+        58
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1639,
+        428,
+        63,
+        140
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1753,
+        399,
+        48,
+        118
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1844,
+        393,
+        75,
+        183
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        263,
+        263,
+        44,
+        31
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        308,
+        294,
+        47,
+        19
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        0,
+        479,
+        77,
+        127
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        0,
+        564,
+        26,
+        10
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        9,
+        460,
+        376,
+        170
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        301,
+        521,
+        60,
+        19
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        369,
+        434,
+        517,
+        200
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        805,
+        514,
+        50,
+        22
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

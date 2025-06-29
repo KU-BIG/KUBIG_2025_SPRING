@@ -1,0 +1,188 @@
+{
+  "file_name": "aachen_aachen_000039_000019_leftImg8bit.png",
+  "image_id": 39,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        440,
+        2047,
+        583
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2047,
+        483
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        294,
+        422,
+        1753,
+        117
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1252,
+        287,
+        45,
+        189
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1238,
+        279,
+        55,
+        205
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        0,
+        493,
+        468,
+        477
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        198,
+        349,
+        160,
+        235
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        0,
+        34,
+        343,
+        597
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1586,
+        324,
+        118,
+        129
+      ],
+      "category": "motorcycle"
+    },
+    {
+      "bbox": [
+        1553,
+        162,
+        494,
+        609
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        686,
+        342,
+        105,
+        112
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1383,
+        374,
+        45,
+        123
+      ],
+      "category": "polegroup"
+    },
+    {
+      "bbox": [
+        697,
+        123,
+        9,
+        345
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        681,
+        179,
+        45,
+        48
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        815,
+        325,
+        95,
+        135
+      ],
+      "category": "motorcycle"
+    },
+    {
+      "bbox": [
+        1441,
+        175,
+        55,
+        58
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1854,
+        150,
+        53,
+        14
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        141,
+        455,
+        101,
+        37
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

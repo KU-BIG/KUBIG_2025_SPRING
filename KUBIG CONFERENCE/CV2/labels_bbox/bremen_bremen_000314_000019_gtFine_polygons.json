@@ -1,0 +1,791 @@
+{
+  "file_name": "bremen_bremen_000314_000019_leftImg8bit.png",
+  "image_id": 584,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        300,
+        2048,
+        724
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1306,
+        419
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        412,
+        971,
+        278
+      ],
+      "category": "ground"
+    },
+    {
+      "bbox": [
+        1139,
+        402,
+        909,
+        622
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1145,
+        85,
+        72,
+        124
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1169,
+        288,
+        112,
+        124
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1194,
+        0,
+        854,
+        528
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1117,
+        393,
+        46,
+        26
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        412,
+        1054,
+        380
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        806,
+        176,
+        239,
+        244
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1036,
+        381,
+        66,
+        38
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1156,
+        240,
+        21,
+        175
+      ],
+      "category": "polegroup"
+    },
+    {
+      "bbox": [
+        1156,
+        237,
+        16,
+        5
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1157,
+        263,
+        10,
+        4
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1155,
+        285,
+        11,
+        4
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1176,
+        293,
+        66,
+        55
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1186,
+        291,
+        86,
+        105
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1201,
+        389,
+        58,
+        25
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1249,
+        346,
+        25,
+        75
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1151,
+        384,
+        12,
+        30
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1157,
+        305,
+        8,
+        4
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1179,
+        376,
+        20,
+        40
+      ],
+      "category": "persongroup"
+    },
+    {
+      "bbox": [
+        1200,
+        382,
+        28,
+        74
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1182,
+        383,
+        37,
+        73
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1365,
+        319,
+        34,
+        10
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1363,
+        317,
+        7,
+        151
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1363,
+        311,
+        20,
+        13
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1348,
+        326,
+        35,
+        33
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1326,
+        375,
+        26,
+        72
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1483,
+        423,
+        12,
+        41
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1446,
+        357,
+        51,
+        111
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1523,
+        389,
+        54,
+        94
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1690,
+        240,
+        91,
+        254
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1592,
+        396,
+        74,
+        94
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1735,
+        384,
+        78,
+        134
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1634,
+        339,
+        96,
+        182
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1834,
+        299,
+        113,
+        268
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1842,
+        378,
+        206,
+        188
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1917,
+        395,
+        59,
+        62
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1939,
+        0,
+        109,
+        57
+      ],
+      "category": "traffic light"
+    },
+    {
+      "bbox": [
+        472,
+        296,
+        116,
+        58
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        205,
+        242,
+        396,
+        217
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        320,
+        261,
+        193
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        443,
+        484
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        382,
+        31,
+        133
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        39,
+        414,
+        72,
+        87
+      ],
+      "category": "persongroup"
+    },
+    {
+      "bbox": [
+        216,
+        453,
+        40,
+        24
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        263,
+        446,
+        37,
+        25
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        177,
+        397,
+        30,
+        97
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        193,
+        389,
+        35,
+        103
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        69,
+        127
+      ],
+      "category": "traffic light"
+    },
+    {
+      "bbox": [
+        338,
+        308,
+        23,
+        58
+      ],
+      "category": "traffic light"
+    },
+    {
+      "bbox": [
+        312,
+        0,
+        38,
+        477
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        285,
+        363,
+        62,
+        176
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        447,
+        279,
+        25,
+        91
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        444,
+        276,
+        6,
+        120
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        513,
+        230,
+        12,
+        145
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        486,
+        224,
+        55,
+        7
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        479,
+        213,
+        16,
+        19
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        502,
+        214,
+        16,
+        15
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        474,
+        370,
+        104,
+        89
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        440,
+        363,
+        93,
+        177
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        361,
+        429,
+        77,
+        111
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        349,
+        339,
+        84,
+        202
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        561,
+        247,
+        453,
+        165
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        616,
+        351,
+        36,
+        26
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        559,
+        366,
+        39,
+        135
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        659,
+        280,
+        70,
+        22
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        689,
+        281,
+        10,
+        99
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        685,
+        364,
+        18,
+        15
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        641,
+        249,
+        19,
+        34
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        658,
+        0,
+        21,
+        377
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        654,
+        239,
+        76,
+        51
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        723,
+        180,
+        25,
+        139
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        916,
+        328,
+        38,
+        22
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        916,
+        100,
+        20,
+        247
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        955,
+        312,
+        3,
+        42
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        760,
+        375,
+        42,
+        109
+      ],
+      "category": "persongroup"
+    },
+    {
+      "bbox": [
+        779,
+        325,
+        223,
+        146
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        937,
+        372,
+        21,
+        80
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        794,
+        367,
+        41,
+        108
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        792,
+        362,
+        40,
+        116
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        779,
+        447,
+        25,
+        29
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        730,
+        0,
+        42,
+        503
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        576,
+        367,
+        177,
+        174
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

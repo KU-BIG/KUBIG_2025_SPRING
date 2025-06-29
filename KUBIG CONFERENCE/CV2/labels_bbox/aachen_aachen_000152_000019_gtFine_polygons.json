@@ -1,0 +1,638 @@
+{
+  "file_name": "aachen_aachen_000152_000019_leftImg8bit.png",
+  "image_id": 152,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        397,
+        121,
+        1092,
+        283
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2047,
+        290
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        840,
+        101,
+        302,
+        280
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        2047,
+        478
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        771,
+        1040,
+        252
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        257,
+        0,
+        378,
+        575
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        851,
+        493,
+        30,
+        9
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        687,
+        455,
+        77,
+        36
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        767,
+        413,
+        74,
+        37
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        877,
+        420,
+        32,
+        38
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        162,
+        435,
+        209,
+        58
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        234,
+        397,
+        64
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1487,
+        257,
+        560,
+        65
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        916,
+        425,
+        80,
+        51
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        397,
+        121,
+        1092,
+        283
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        568,
+        2047,
+        329
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        2047,
+        478
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        397,
+        121,
+        1092,
+        283
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        257,
+        0,
+        378,
+        575
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        840,
+        101,
+        302,
+        280
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        840,
+        101,
+        302,
+        280
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        2047,
+        478
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        2047,
+        478
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "truck"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        161,
+        438,
+        210,
+        41
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        846,
+        492,
+        36,
+        10
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        365,
+        207,
+        14,
+        41
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        683,
+        455,
+        83,
+        38
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        767,
+        412,
+        75,
+        34
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        877,
+        420,
+        25,
+        35
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        914,
+        425,
+        89,
+        49
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1,
+        263,
+        397,
+        81
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        234,
+        397,
+        64
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1949,
+        486,
+        98,
+        64
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        234,
+        397,
+        64
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        161,
+        438,
+        210,
+        41
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        161,
+        438,
+        210,
+        41
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        683,
+        455,
+        83,
+        38
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        683,
+        455,
+        83,
+        38
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        0,
+        273,
+        2047,
+        434
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        257,
+        0,
+        378,
+        575
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        12,
+        20,
+        520
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        0,
+        434,
+        2047,
+        332
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        877,
+        420,
+        25,
+        35
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        914,
+        425,
+        89,
+        49
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1949,
+        486,
+        98,
+        64
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        161,
+        438,
+        210,
+        41
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        771,
+        1996,
+        252
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        767,
+        412,
+        75,
+        34
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        161,
+        438,
+        210,
+        41
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        850,
+        492,
+        31,
+        9
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1,
+        545,
+        2046,
+        478
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        45,
+        37
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        383,
+        45,
+        41,
+        54
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

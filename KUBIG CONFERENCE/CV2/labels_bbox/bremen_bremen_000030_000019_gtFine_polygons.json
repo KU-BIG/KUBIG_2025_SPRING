@@ -1,0 +1,323 @@
+{
+  "file_name": "bremen_bremen_000030_000019_leftImg8bit.png",
+  "image_id": 300,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        515,
+        2048,
+        509
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        551,
+        508,
+        171,
+        15
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        528,
+        0,
+        313,
+        516
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        712,
+        334
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        572,
+        606
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        136,
+        435,
+        187,
+        164
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        706,
+        331,
+        6,
+        149
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        708,
+        341,
+        23,
+        10
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        687,
+        335,
+        20,
+        7
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        694,
+        366,
+        31,
+        14
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        698,
+        386,
+        19,
+        19
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        698,
+        404,
+        19,
+        12
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        676,
+        469,
+        53,
+        48
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        667,
+        459,
+        19,
+        60
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        649,
+        439,
+        24,
+        82
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1002,
+        512,
+        286,
+        52
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        819,
+        0,
+        1229,
+        621
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        868,
+        0,
+        43,
+        28
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1640,
+        564,
+        408,
+        266
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1302,
+        341,
+        12,
+        94
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1290,
+        261,
+        34,
+        35
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1288,
+        294,
+        34,
+        57
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1637,
+        466,
+        75,
+        109
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1705,
+        425,
+        101,
+        158
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1799,
+        444,
+        93,
+        156
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1994,
+        437,
+        52,
+        46
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1815,
+        405,
+        233,
+        351
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1968,
+        65,
+        25,
+        690
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1903,
+        0,
+        145,
+        89
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1245,
+        386,
+        422,
+        304
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1458,
+        558,
+        111,
+        26
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        709,
+        408,
+        320,
+        253
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        814,
+        512,
+        101,
+        22
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

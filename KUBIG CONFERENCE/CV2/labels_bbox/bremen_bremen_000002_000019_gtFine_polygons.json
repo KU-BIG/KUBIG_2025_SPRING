@@ -1,0 +1,161 @@
+{
+  "file_name": "bremen_bremen_000002_000019_leftImg8bit.png",
+  "image_id": 272,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        496,
+        2048,
+        528
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        505
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        903,
+        506
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        740,
+        2,
+        1059,
+        486
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        481,
+        2048,
+        52
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1107,
+        274,
+        16,
+        232
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1101,
+        336,
+        19,
+        23
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1100,
+        297,
+        18,
+        35
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1092,
+        251,
+        28,
+        43
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        103,
+        320,
+        22,
+        192
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        77,
+        121,
+        72,
+        213
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        233,
+        428,
+        50,
+        73
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        96,
+        411,
+        68,
+        113
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        0,
+        545,
+        2048,
+        43
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        1069,
+        192,
+        18,
+        97
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

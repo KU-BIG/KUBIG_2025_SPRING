@@ -1,0 +1,602 @@
+{
+  "file_name": "bremen_bremen_000281_000019_leftImg8bit.png",
+  "image_id": 551,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        363,
+        0,
+        1522,
+        389
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        391,
+        2048,
+        633
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        952,
+        419,
+        828,
+        74
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        988,
+        436,
+        74,
+        20
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        953,
+        0,
+        1095,
+        510
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        746,
+        269,
+        267,
+        178
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        551,
+        216,
+        190,
+        283
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        559,
+        266,
+        222,
+        190
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        728,
+        423,
+        19,
+        41
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        711,
+        434,
+        18,
+        34
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        610,
+        427,
+        97,
+        47
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        609,
+        583
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        576,
+        436,
+        100,
+        58
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        0,
+        527,
+        624,
+        202
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        486,
+        409,
+        77,
+        89
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        553,
+        425,
+        33,
+        76
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        57,
+        223,
+        154,
+        279
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        667,
+        439
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        121,
+        330,
+        97,
+        17
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        215,
+        331,
+        8,
+        108
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        191,
+        342,
+        30,
+        18
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        0,
+        482,
+        55,
+        105
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        4,
+        404,
+        564,
+        342
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        101,
+        640,
+        141,
+        37
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        768,
+        421,
+        58,
+        47
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        973,
+        411,
+        17,
+        52
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        923,
+        410,
+        60,
+        60
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        774,
+        400,
+        170,
+        110
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        961,
+        148,
+        258,
+        309
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1050,
+        439,
+        24,
+        19
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1137,
+        342,
+        55,
+        87
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1187,
+        392,
+        51,
+        40
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1200,
+        415,
+        53,
+        39
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1134,
+        405,
+        75,
+        59
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1235,
+        382,
+        98,
+        79
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1300,
+        297,
+        107,
+        115
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1293,
+        366,
+        42,
+        41
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1274,
+        383,
+        155,
+        80
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1476,
+        285,
+        46,
+        201
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1515,
+        292,
+        57,
+        22
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1491,
+        301,
+        23,
+        10
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1467,
+        395,
+        31,
+        50
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1051,
+        451,
+        109,
+        17
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1617,
+        409,
+        126,
+        64
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1648,
+        398,
+        14,
+        74
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        958,
+        495,
+        1090,
+        529
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1764,
+        403,
+        25,
+        58
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1401,
+        513,
+        303,
+        76
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1451,
+        437,
+        20,
+        85
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1216,
+        0,
+        583,
+        529
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1562,
+        425,
+        23,
+        124
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1771,
+        23,
+        244,
+        329
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1993,
+        0,
+        55,
+        504
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1758,
+        275,
+        286,
+        237
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1151,
+        414,
+        30,
+        53
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1160,
+        338,
+        10,
+        129
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1679,
+        428,
+        282,
+        113
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1081,
+        413,
+        49,
+        43
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1111,
+        416,
+        38,
+        138
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1142,
+        312,
+        39,
+        33
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1148,
+        346,
+        29,
+        17
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1153,
+        370,
+        24,
+        21
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1380,
+        434,
+        41,
+        24
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        649,
+        442,
+        27,
+        35
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

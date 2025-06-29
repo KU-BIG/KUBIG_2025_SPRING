@@ -1,0 +1,305 @@
+{
+  "file_name": "bremen_bremen_000161_000019_leftImg8bit.png",
+  "image_id": 431,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        298,
+        2048,
+        726
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        516,
+        1367,
+        296
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        1554,
+        517,
+        494,
+        275
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        882,
+        0,
+        636,
+        228
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        1080,
+        0,
+        968,
+        669
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1203,
+        747
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1161,
+        455,
+        89,
+        94
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1322,
+        506,
+        161,
+        22
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        587,
+        498,
+        280,
+        54
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        800,
+        410,
+        142,
+        131
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        498,
+        484,
+        472,
+        145
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        0,
+        433,
+        537,
+        391
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1354,
+        471,
+        64,
+        64
+      ],
+      "category": "cargroup"
+    },
+    {
+      "bbox": [
+        1249,
+        495,
+        76,
+        35
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1257,
+        377,
+        31,
+        162
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1280,
+        397,
+        15,
+        12
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1522,
+        475,
+        40,
+        16
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1485,
+        452,
+        31,
+        12
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1467,
+        482,
+        113,
+        108
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1134,
+        486,
+        98,
+        101
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1153,
+        490,
+        46,
+        105
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        911,
+        379,
+        266,
+        245
+      ],
+      "category": "caravan"
+    },
+    {
+      "bbox": [
+        1020,
+        486,
+        61,
+        137
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        961,
+        526,
+        48,
+        75
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1669,
+        387,
+        6,
+        74
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1503,
+        550,
+        24,
+        11
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1845,
+        582,
+        203,
+        98
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1507,
+        453,
+        370,
+        243
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1704,
+        554,
+        88,
+        25
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1354,
+        471,
+        64,
+        64
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        0,
+        676,
+        26,
+        30
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

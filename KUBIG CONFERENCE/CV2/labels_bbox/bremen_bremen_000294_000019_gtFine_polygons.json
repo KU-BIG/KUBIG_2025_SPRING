@@ -1,0 +1,386 @@
+{
+  "file_name": "bremen_bremen_000294_000019_leftImg8bit.png",
+  "image_id": 564,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        362,
+        2048,
+        662
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        584,
+        475,
+        409,
+        124
+      ],
+      "category": "ground"
+    },
+    {
+      "bbox": [
+        584,
+        475,
+        409,
+        124
+      ],
+      "category": "parking"
+    },
+    {
+      "bbox": [
+        1463,
+        487,
+        585,
+        153
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        816,
+        0,
+        795,
+        351
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        1068,
+        277,
+        237,
+        158
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        510,
+        728,
+        278
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        730
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        622,
+        147,
+        24,
+        394
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        553,
+        479,
+        23,
+        80
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        607,
+        477,
+        16,
+        71
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        667,
+        469,
+        21,
+        61
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        461,
+        504,
+        20,
+        68
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        559,
+        540,
+        59,
+        55
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1356,
+        472,
+        691,
+        498
+      ],
+      "category": "parking"
+    },
+    {
+      "bbox": [
+        463,
+        551,
+        74,
+        62
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        983,
+        363,
+        7,
+        75
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        978,
+        388,
+        130,
+        94
+      ],
+      "category": "cargroup"
+    },
+    {
+      "bbox": [
+        1030,
+        388,
+        53,
+        27
+      ],
+      "category": "caravan"
+    },
+    {
+      "bbox": [
+        980,
+        473,
+        67,
+        38
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        979,
+        447,
+        54,
+        53
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        876,
+        422,
+        115,
+        97
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        855,
+        430,
+        88,
+        103
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1327,
+        462,
+        40,
+        26
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        694,
+        419,
+        194,
+        135
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1133,
+        412,
+        251,
+        59
+      ],
+      "category": "cargroup"
+    },
+    {
+      "bbox": [
+        1360,
+        415,
+        100,
+        85
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1396,
+        487,
+        61,
+        18
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1425,
+        476,
+        22,
+        20
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1437,
+        414,
+        92,
+        126
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1748,
+        478,
+        300,
+        76
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        1478,
+        384,
+        268,
+        198
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1545,
+        563,
+        503,
+        144
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1592,
+        427,
+        184,
+        158
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1680,
+        366,
+        32,
+        218
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1826,
+        416,
+        186,
+        41
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        1804,
+        419,
+        9,
+        53
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1787,
+        476,
+        19,
+        138
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1873,
+        488,
+        83,
+        187
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1255,
+        414,
+        88,
+        83
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

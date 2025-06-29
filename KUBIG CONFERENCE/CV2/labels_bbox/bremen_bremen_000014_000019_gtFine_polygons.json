@@ -1,0 +1,206 @@
+{
+  "file_name": "bremen_bremen_000014_000019_leftImg8bit.png",
+  "image_id": 284,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        0,
+        2047,
+        655
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1987,
+        377,
+        60,
+        48
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        1635,
+        351,
+        308,
+        67
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        0,
+        478,
+        2048,
+        546
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        1084,
+        0,
+        705,
+        531
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1029,
+        391,
+        1019,
+        231
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        0,
+        446,
+        2048,
+        346
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        301,
+        218,
+        9,
+        271
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        287,
+        221,
+        33,
+        70
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        306,
+        394,
+        77,
+        94
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        201,
+        405,
+        100,
+        75
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        180,
+        397,
+        38,
+        83
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        172,
+        430,
+        50,
+        63
+      ],
+      "category": "dynamic"
+    },
+    {
+      "bbox": [
+        0,
+        368,
+        146,
+        122
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        129,
+        360,
+        65,
+        133
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        0,
+        537,
+        359,
+        285
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        448,
+        373,
+        25,
+        16
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1032,
+        500,
+        1015,
+        124
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        1970,
+        0,
+        77,
+        244
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        490,
+        327,
+        34,
+        159
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

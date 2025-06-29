@@ -1,0 +1,341 @@
+{
+  "file_name": "aachen_aachen_000160_000019_leftImg8bit.png",
+  "image_id": 160,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        492,
+        0,
+        405,
+        176
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        0,
+        382,
+        2047,
+        641
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        898,
+        430,
+        1149,
+        499
+      ],
+      "category": "ground"
+    },
+    {
+      "bbox": [
+        700,
+        0,
+        1347,
+        885
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        386,
+        867,
+        377
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        757,
+        397,
+        4,
+        29
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        752,
+        532
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        442,
+        420,
+        252,
+        69
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        0,
+        379,
+        206,
+        150
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        0,
+        318,
+        739,
+        295
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        794,
+        574
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        849,
+        423,
+        27,
+        21
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        748,
+        410,
+        19,
+        42
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        865,
+        425,
+        36,
+        27
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        880,
+        434,
+        43,
+        27
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        891,
+        438,
+        45,
+        30
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        959,
+        473,
+        61,
+        43
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        967,
+        476,
+        69,
+        52
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        984,
+        478,
+        49,
+        65
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1005,
+        470,
+        57,
+        90
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        777,
+        303,
+        6,
+        181
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1020,
+        449,
+        113,
+        137
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        1069,
+        441,
+        207,
+        171
+      ],
+      "category": "car"
+    },
+    {
+      "bbox": [
+        735,
+        287,
+        8,
+        245
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        737,
+        434,
+        48,
+        115
+      ],
+      "category": "rider"
+    },
+    {
+      "bbox": [
+        740,
+        484,
+        39,
+        89
+      ],
+      "category": "bicycle"
+    },
+    {
+      "bbox": [
+        1149,
+        546,
+        69,
+        14
+      ],
+      "category": "license plate"
+    },
+    {
+      "bbox": [
+        1406,
+        231,
+        22,
+        326
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1393,
+        202,
+        53,
+        56
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        958,
+        415,
+        5,
+        47
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        955,
+        410,
+        9,
+        8
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        623,
+        503,
+        119,
+        44
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        769,
+        353,
+        4,
+        90
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        444,
+        302,
+        243,
+        130
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        256,
+        297,
+        191,
+        170
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        271,
+        844,
+        1757,
+        179
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "file_name": "bochum_bochum_000000_016125_leftImg8bit.png",
+  "image_id": 214,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        415,
+        0,
+        305,
+        81
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        419,
+        0,
+        139,
+        605
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        472,
+        0,
+        85,
+        73
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        0,
+        524,
+        2047,
+        499
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2047,
+        618
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        0,
+        442,
+        2047,
+        263
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        153,
+        342,
+        210,
+        147
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        162,
+        456,
+        147,
+        154
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        141,
+        89,
+        199,
+        543
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        417,
+        0,
+        303,
+        81
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        417,
+        0,
+        134,
+        604
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        471,
+        0,
+        91,
+        74
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        644,
+        448,
+        140,
+        141
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1776,
+        306,
+        97,
+        232
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        661,
+        329,
+        165,
+        127
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        660,
+        115,
+        154,
+        492
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        833,
+        359,
+        207,
+        253
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1707,
+        314,
+        86,
+        218
+      ],
+      "category": "person"
+    },
+    {
+      "bbox": [
+        1463,
+        134,
+        60,
+        444
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1453,
+        0,
+        160,
+        143
+      ],
+      "category": "traffic light"
+    },
+    {
+      "bbox": [
+        1525,
+        176,
+        32,
+        36
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1529,
+        214,
+        21,
+        19
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        24,
+        796,
+        2023,
+        227
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        416,
+        0,
+        1631,
+        28
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        2037,
+        509,
+        10,
+        514
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        17,
+        474
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        977,
+        1937,
+        46
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "file_name": "bochum_bochum_000000_031152_leftImg8bit.png",
+  "image_id": 253,
+  "height": 1024,
+  "width": 2048,
+  "annotations": [
+    {
+      "bbox": [
+        0,
+        431,
+        2047,
+        592
+      ],
+      "category": "road"
+    },
+    {
+      "bbox": [
+        1746,
+        667,
+        301,
+        57
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        294,
+        641,
+        1564,
+        98
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        0,
+        409,
+        2047,
+        244
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        426,
+        0,
+        1621,
+        314
+      ],
+      "category": "sky"
+    },
+    {
+      "bbox": [
+        1815,
+        109,
+        210,
+        236
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        767,
+        458,
+        352,
+        130
+      ],
+      "category": "parking"
+    },
+    {
+      "bbox": [
+        618,
+        11,
+        392,
+        256
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        1903,
+        605
+      ],
+      "category": "building"
+    },
+    {
+      "bbox": [
+        1658,
+        355,
+        29,
+        30
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1783,
+        377,
+        33,
+        49
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1650,
+        379,
+        39,
+        43
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1317,
+        440,
+        730,
+        148
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        1461,
+        375,
+        397,
+        93
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1373,
+        430,
+        674,
+        69
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        1278,
+        53,
+        292,
+        406
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1840,
+        193,
+        207,
+        257
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1560,
+        449,
+        58,
+        21
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1632,
+        425,
+        155,
+        63
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1624,
+        139,
+        35,
+        157
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1633,
+        107,
+        87,
+        31
+      ],
+      "category": "traffic sign"
+    },
+    {
+      "bbox": [
+        1621,
+        99,
+        20,
+        574
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1007,
+        442,
+        181,
+        146
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        758,
+        467,
+        64,
+        81
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        448,
+        431,
+        291,
+        164
+      ],
+      "category": "sidewalk"
+    },
+    {
+      "bbox": [
+        606,
+        492,
+        115,
+        93
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        697,
+        410,
+        85,
+        177
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        289,
+        416,
+        206,
+        186
+      ],
+      "category": "wall"
+    },
+    {
+      "bbox": [
+        631,
+        297,
+        60,
+        133
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        411,
+        497,
+        108,
+        66
+      ],
+      "category": "fence"
+    },
+    {
+      "bbox": [
+        275,
+        474,
+        512,
+        160
+      ],
+      "category": "terrain"
+    },
+    {
+      "bbox": [
+        429,
+        498,
+        15,
+        74
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        666,
+        500,
+        14,
+        64
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        0,
+        158,
+        181,
+        335
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        376,
+        145,
+        775,
+        254
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        734,
+        316,
+        88,
+        155
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        1020,
+        331,
+        14,
+        33
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1038,
+        407,
+        6,
+        36
+      ],
+      "category": "pole"
+    },
+    {
+      "bbox": [
+        1021,
+        388,
+        25,
+        49
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1845,
+        290,
+        18,
+        37
+      ],
+      "category": "static"
+    },
+    {
+      "bbox": [
+        1785,
+        356,
+        31,
+        25
+      ],
+      "category": "vegetation"
+    },
+    {
+      "bbox": [
+        24,
+        796,
+        2023,
+        227
+      ],
+      "category": "ego vehicle"
+    },
+    {
+      "bbox": [
+        416,
+        0,
+        1631,
+        28
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        2037,
+        509,
+        10,
+        514
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        17,
+        474
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        977,
+        1937,
+        46
+      ],
+      "category": "rectification border"
+    },
+    {
+      "bbox": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "category": "out of roi"
+    }
+  ]
+}
