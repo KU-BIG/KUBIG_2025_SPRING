@@ -21,4 +21,4 @@
   - 한국표준산업분류(11차), 통계청
 
 ## Pipeline
-
+![Image](https://github.com/user-attachments/assets/290b5295-43a0-4f0a-8134-c5a61ec7d3a4)
