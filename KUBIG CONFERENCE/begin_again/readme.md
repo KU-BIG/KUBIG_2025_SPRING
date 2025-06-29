@@ -21,6 +21,9 @@
   - 한국표준산업분류(11차), 통계청
 
 ## Pipeline
-![Image](https://github.com/user-attachments/assets/290b5295-43a0-4f0a-8134-c5a61ec7d3a4)
+- 업종 클러스터 기준 1차 필터링 → 산업안정도 지표 기준 2차 필터링 → 기업 적합도 기준 최종 추천 기업 선정
+  ![Image](https://github.com/user-attachments/assets/290b5295-43a0-4f0a-8134-c5a61ec7d3a4)
 
 ## Service Prototype
+- 사용자 개인 정보 (나이/성별, 거주지, 학력/전공, 고용안정도 및 재해안전성 선호도, 재직 회사 정보) 입력 시 산업안정도 산출 및 맞춤형 기업 분석 리포트 생성 
+  ![Image](https://github.com/user-attachments/assets/689bde90-1935-4516-aaad-e0a2a11ded40)
