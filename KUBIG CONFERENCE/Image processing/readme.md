@@ -54,9 +54,6 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 - 애니메이션 기반 수어 동작 생성  
 - [Epoch 4] Val Loss: 0.0807, BLEU (pre-train): 0.2565
 
-![image](./모델.png)
-
-
 ## 🚀 주요 결과
 
 - Keypoint 기반 입력만으로도 효과적인 수어 번역 가능!
