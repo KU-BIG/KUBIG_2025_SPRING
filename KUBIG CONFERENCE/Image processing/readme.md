@@ -4,7 +4,7 @@
 👩‍💻 **팀원**  
 김동욱, 김지엽, 김지원, 이예지, 이준언  
 KUBIG(Korea University Data Science & AI Society), 고려대학교  
-(ppuppu1200, ljykjy1309, jinnyk42, ye_ji, jel0206)@korea.ac.kr
+
 
 ## 🏁 프로젝트 소개
 
@@ -18,6 +18,7 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 - 문법적 제약이 적고 자유로운 구조  
 - 표정, 시선, 고개 등 비수지(손이 아닌) 표현이 핵심!
 
+
 ## 📂 데이터셋
 
 - **Train Set:**  
@@ -30,6 +31,7 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 - **형식:**  
   - 2D/3D keypoint 정보 포함 JSON 파일 (OpenPose 기반, 얼굴 keypoint 및 confidence score 제외)
   - 일부 3D keypoint, 비수지·형태소 정보 제공
+
 
 ## 🛠️ 파이프라인 & 모델 구조
 
@@ -54,12 +56,14 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 - 애니메이션 기반 수어 동작 생성  
 - [Epoch 4] Val Loss: 0.0807, BLEU (pre-train): 0.2565
 
+
 ## 🚀 주요 결과
 
 - Keypoint 기반 입력만으로도 효과적인 수어 번역 가능!
 - 단방향이 아닌 쌍방향(양방향) 번역 시스템 설계  
 - slot-based 전처리로 고유명사 등 noise 대응  
 - 실제 시연 영상도 프로젝트에 포함
+
 
 ## 🌟 의의, 한계 & 향후 계획
 
@@ -77,6 +81,7 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 **향후 계획**  
 - 다양한 재난·일상 문장 포함 대규모 수어 데이터셋 확보  
 - slot tagging·의미 기반 평가 지표 등 모델 고도화
+
 
 ## 📧 문의
 
