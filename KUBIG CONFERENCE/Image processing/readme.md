@@ -54,7 +54,7 @@ KUBIG(Korea University Data Science & AI Society), 고려대학교
 - 애니메이션 기반 수어 동작 생성  
 - [Epoch 4] Val Loss: 0.0807, BLEU (pre-train): 0.2565
 
-![image](./pipeline.png)
+![image](./모델.png)
 
 
 ## 🚀 주요 결과
