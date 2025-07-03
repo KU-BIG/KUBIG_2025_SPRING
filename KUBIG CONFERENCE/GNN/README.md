@@ -14,6 +14,8 @@ by Junhyeok Won, [Minseok Kwon](https://github.com/minseok3180), [GeonYoung Lee]
 This is the official repository for our KUBIG Conference 2025 project: [Graph-neural-network](https://github.com/minseok3180/Graph-neural-network).    
 Due to storage limitations, large data files are not included directly in this repository.  
 You can access the full dataset for inference here: [LINK](https://github.com/minseok3180/Graph-neural-network/tree/main/data/FOODRKG%2BDrugBank)  
+
+
 **GNN-Based Food-Drug Interaction Prediction**.
 
 We propose a framework that **extends drug-drug interaction (DDI)** models to predict **food-drug interactions (FDI)** by treating **food as a collection of compounds**, and integrating food information into a **knowledge graph (DRKG)**. Our method incorporates both **molecular graphs** and **heterogeneous knowledge graphs** to improve prediction quality.
