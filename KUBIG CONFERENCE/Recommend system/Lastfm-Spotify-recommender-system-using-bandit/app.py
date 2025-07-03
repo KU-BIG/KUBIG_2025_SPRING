@@ -68,8 +68,8 @@ if option == "나만의 추천":
 # ────────────────────────────────────────
 else:
     if option == "최근 들은 곡":
-        track_name = st.text_input("트랙 이름", "Not Like Us")
-        artist_name = st.text_input("아티스트 이름", "Kendrick Lamar")
+        track_name = st.text_input("트랙 이름", "A Tribe called jazzyfact")
+        artist_name = st.text_input("아티스트 이름", "Jazzyfact")
     elif option == "좋아하는 아티스트":
         artist_name = st.text_input("아티스트 이름", "John Mayer")
     elif option == "좋아하는 장르":
