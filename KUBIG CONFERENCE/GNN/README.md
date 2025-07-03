@@ -6,7 +6,7 @@
 
 # GNN-Based Food-Drug Interaction Prediction (KUBIG Conference 2025)
 
-[[Poster]](./assets/0001.jpg) [[Slides]](./assets/GNN_ppt.pdf)
+[[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
 
 by [Junhyeok Won](#), [Minseok Kwon](#), [GeonYoung Lee](https://wltschmrz.github.io/), [YunKyung Ko](#)  
 KUBIG (Korea University Data Science & AI Society), Korea University
@@ -20,7 +20,7 @@ We propose a framework that **extends drug-drug interaction (DDI)** models to pr
 
 ## Overview
 
-![Project Diagram](assets/figures/fdi_pipeline.png)
+![Project Diagram](assets/0001.jpg)
 
 The pipeline consists of three major components:
 
