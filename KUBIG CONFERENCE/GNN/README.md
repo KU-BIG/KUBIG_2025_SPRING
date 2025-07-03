@@ -6,14 +6,14 @@
 
 # GNN-Based Food-Drug Interaction Prediction (KUBIG Conference 2025)
 
-[[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
-
-by Junhyeok Won, [Minseok Kwon](https://github.com/minseok3180), [GeonYoung Lee](https://wltschmrz.github.io/), YunKyung Ko  
-[KUBIG (Korea University Data Science & AI Society)](https://www.kubigkorea.com/), [Korea University](https://www.korea.edu/sites/en/index.do)
-
-This is the official repository for our KUBIG Conference 2025 project: [Graph-neural-network](https://github.com/minseok3180/Graph-neural-network).    
-Due to storage limitations, large data files are not included directly in this repository.  
-You can access the full dataset for inference here: [LINK](https://github.com/minseok3180/Graph-neural-network/tree/main/data/FOODRKG%2BDrugBank)  
+> [[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
+> 
+> by Junhyeok Won, [Minseok Kwon](https://github.com/minseok3180), [GeonYoung Lee](https://wltschmrz.github.io/), YunKyung Ko  
+> [KUBIG (Korea University Data Science & AI Society)](https://www.kubigkorea.com/), [Korea University](https://www.korea.edu/sites/en/index.do)
+> 
+> This is the official repository for our KUBIG Conference 2025 project: [Graph-neural-network](https://github.com/minseok3180/Graph-neural-network).    
+> Due to storage limitations, large data files are not included directly in this repository.  
+> You can access the full dataset for inference here: [LINK](https://github.com/minseok3180/Graph-neural-network/tree/main/data/FOODRKG%2BDrugBank)  
 
 
 **GNN-Based Food-Drug Interaction Prediction**.
