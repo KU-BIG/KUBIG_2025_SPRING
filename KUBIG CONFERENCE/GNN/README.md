@@ -1,7 +1,7 @@
-<div style="display: flex; justify-content: center; align-items: center; gap: 100px;">
-  <img src="assets/ku-logo.png" alt="Korea University" height="50" style="margin-right: 20px;">
-  <img src="assets/KUBIG_logo.png" alt="KUBIG 2025" height="50" style="margin-left: 30px;">
-</div>
+<p align="center">
+  <img src="assets/ku-logo.png" alt="Korea University" height="50">    
+  <img src="assets/KUBIG_logo.png" alt="KUBIG 2025" height="50">
+</p>
 
 # GNN-Based Food-Drug Interaction Prediction (KUBIG Conference 2025)
 
