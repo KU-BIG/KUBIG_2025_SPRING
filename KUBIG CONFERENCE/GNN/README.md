@@ -4,7 +4,8 @@
   <img src="assets/ku-logo.png" alt="Korea University" height="55">
 </div>
 
-# GNN-Based Food-Drug Interaction Prediction (KUBIG Conference 2025)
+# GNN-Based Food-Drug Interaction Prediction  
+### KUBIG Conference 2025
 
 [[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
 
