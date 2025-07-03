@@ -6,7 +6,7 @@
 
 # GNN-Based Food-Drug Interaction Prediction (KUBIG Conference 2025)
 
-[[Poster]](./poster.pdf) [[Slides]](./slides.pdf)
+[[Poster]](./assets/0001.png) [[Slides]](./slides.pdf)
 
 by [Junhyeok Won](#), [Minseok Kwon](#), [GeonYoung Lee](https://wltschmrz.github.io/), [YunKyung Ko](#)  
 KUBIG (Korea University Data Science & AI Society), Korea University
