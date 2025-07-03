@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center; align-items: center; gap: 100px;">
-  <img src="assets/ku-logo.png" alt="Korea University" height="50" style="margin-right: 12px;">
+  <img src="./assets/KUBIG_logo-04.png" alt="Korea University" height="50" style="margin-right: 12px;">
   <img src="assets/kubig-2025-logo.png" alt="KUBIG 2025" height="60">
 </div>
 
