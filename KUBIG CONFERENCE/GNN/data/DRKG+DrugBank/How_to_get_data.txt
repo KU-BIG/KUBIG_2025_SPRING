@@ -1,0 +1,1 @@
+You can get data files from: https://github.com/minseok3180/Graph-neural-network/tree/main/data
