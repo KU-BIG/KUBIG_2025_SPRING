@@ -20,7 +20,7 @@ We propose a framework that **extends drug-drug interaction (DDI)** models to pr
 
 ## Overview
 
-![Project Diagram](assets/0001.jpg)
+![Project Diagram](assets/poster_img.jpg)
 
 The pipeline consists of three major components:
 
