@@ -153,13 +153,16 @@ This will output:
 
 ## Acknowledgement
 
-This work builds upon [HetDDI](https://github.com/) and [DRKG](https://github.com/gnn4dr/DRKG). We thank the authors for their open-source contributions.
+This work builds upon [HetDDI](https://github.com/LinsLab/HetDDI) and [DRKG](https://github.com/gnn4dr/DRKG). We thank the authors for their open-source contributions.
 
 ---
 
 ## License
 
-This project is licensed under **CC BY-NC-SA 4.0**.
-See [`LICENSE`](./LICENSE) for full details.
+This project is licensed under the Apache-2.0 License.  
+Note that our method incorporates the DRKG knowledge graph, which includes data from multiple sources with potentially differing licenses.  
+We retain the license attributes from the original DRKG repository on a per-node and per-edge basis.  
+Users are responsible for verifying compliance with each source's license (see: [https://github.com/gnn4dr/DRKG#license](https://github.com/gnn4dr/DRKG/blob/master/licenses/Readme.md)).
+
 
 ---
