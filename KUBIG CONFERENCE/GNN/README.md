@@ -8,7 +8,7 @@
 
 [[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
 
-by [Junhyeok Won](#), [Minseok Kwon](#), [GeonYoung Lee](https://wltschmrz.github.io/), [YunKyung Ko](#)  
+by Junhyeok Won, Minseok Kwon, [GeonYoung Lee](https://wltschmrz.github.io/), YunKyung Ko
 KUBIG (Korea University Data Science & AI Society), Korea University
 
 This is the official repository for our KUBIG Conference 2025 project:  
