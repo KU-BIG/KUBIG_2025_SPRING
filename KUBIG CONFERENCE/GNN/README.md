@@ -86,7 +86,7 @@ nohup python main.py > log/main.log 2>&1 &
 
 ---
 
-## Inference - *Inference support is not currently available.*
+## Inference - *(Inference support is not currently available.)*
 
 You can perform prediction using a shell script.
 
