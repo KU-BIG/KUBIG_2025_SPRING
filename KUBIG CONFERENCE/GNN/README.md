@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/ku-logo.png" alt="Korea University" height="50">    
+  <img src="assets/ku-logo.png" alt="Korea University" height="60">    
   <img src="assets/KUBIG_logo.png" alt="KUBIG 2025" height="50">
 </p>
 
