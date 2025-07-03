@@ -5,7 +5,7 @@
 </div>
 
 # GNN-Based Food-Drug Interaction Prediction  
-### KUBIG Conference 2025
+**KUBIG Conference 2025**
 
 [[Poster]](./assets/GNN_poster.pdf) [[Slides]](./assets/GNN_ppt.pdf)
 
