@@ -1,4 +1,4 @@
-# 2021년 재난 안전 정보 수어 영상 데이터 구축 사업 위해 데모 번역 모델
+# 2021년 재난 안전 정보 수어 영상 데이터 구축 사업 위해 데모 번역 모델 (Python 3.11 버전 업 수행)
 # Demo Korean to KSL Translation Model for 2021 NIA Emergency Alert Data Generation Project
 
 
