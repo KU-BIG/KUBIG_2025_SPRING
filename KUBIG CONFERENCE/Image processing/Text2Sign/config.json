@@ -1,0 +1,91 @@
+{
+  "group_data_path": "data/groups/",
+
+  "data_split_path": "data/data_split.json",
+  "ksl_vocab_path": "data/ksl_vocab.json",
+
+  "animation_mapping_path": "data/animation_mapping.json",
+
+  "split_group_by_base": false,
+
+  "use_dataset_pickles": true,
+  "pickle_directory": "data/",
+  "train_pickle_name": "train_dataset.pkl",
+  "val_pickle_name": "validate_dataset.pkl",
+  "bleu_val_pickle_name": "bleu_validate_dataset.pkl",
+  "test_pickle_name": "test_dataset.pkl",
+  "bleu_test_pickle_name": "bleu_test_dataset.pkl",
+
+  "data_train_path": "data/train/",
+  "data_validate_path": "data/validate/",
+  "data_test_path": "data/test/",
+
+  "preload_data": true,
+
+  "max_source_length": 256,
+  "max_target_length": 256,
+
+  "channel_to_gloss": false,
+
+  "ksl_embedding_method": "concat",
+  "ksl_embedding_split": 0.9,
+
+  "ignore_nms": true,
+
+  "train": {
+    "device": "cuda:0",
+    "n_dl_workers": 0,
+    "val_n_dl_workers": 0,
+    "batch_size":4,
+    "val_batch_size": 4,
+    "accumulate": 10,
+    "freeze_strategies": [
+      "none",
+      "pretrained",
+      "attention"
+    ],
+    "freeze_pointer": 0,
+    "unfreeze_step": 2000,
+    "print_every": 1,
+    "eval_every": 2,
+    "bleu_every": 5,
+    "save_model_every": 5,
+    "epochs": 60,
+    "optimizers": [
+      "sgd",
+      "adam",
+      "adamw"
+
+    ],
+    "optimizer_pointer": 2,
+    "model_lr": 0.0001,
+    "point_lr": 0.001,
+    "sign_lr": 0.001,
+    "timing_lr": 0.001,
+    "patience": 3,
+    "ksl_embedding_init_pretrained": false,
+    "load_model": false,
+    "load_optimizer": false,
+    "load_id": "sample",
+    "model_path": "checkpoints/",
+    "experiment_id": "sample",
+    "n_beams": 2,
+    "top_k": null,
+    "top_p": null
+  },
+
+  "test": {
+    "device": "cuda:0",
+    "n_dl_workers": 0,
+    "batch_size": 4,
+    "print_every": 1,
+    "eval_every": 1,
+    "load_model": true,
+    "load_id": "sample",
+    "model_path": "checkpoints/",
+    "results_path": "results/",
+    "n_beams": 5,
+    "top_k": null,
+    "top_p": null
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "SequenceHandBoth": [
+    {
+      "StartTime": 0,
+      "EndTime": 0.1,
+      "BlockType": "animation",
+      "BlockValue": "25209",
+      "BlockValueText": "neutral",
+      "BlockExtraData": []
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 2.0654075145721436,
+      "EndTime": 2.654043436050415,
+      "BlockType": "animation",
+      "BlockValue": "31240",
+      "BlockValueText": "오늘1"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 2.7569663882255555,
+      "EndTime": 3.234119474887848,
+      "BlockType": "animation",
+      "BlockValue": "4231",
+      "BlockValueText": "아침1"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 3.334119474887848,
+      "EndTime": 3.8604082465171814,
+      "BlockType": "animation",
+      "BlockValue": "28189",
+      "BlockValueText": "지역1"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 6.581011235713959,
+      "EndTime": 7.10040670633316,
+      "BlockType": "animation",
+      "BlockValue": "24887",
+      "BlockValueText": "사고1"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 7.2919089794158936,
+      "EndTime": 7.771348476409912,
+      "BlockType": "animation",
+      "BlockValue": "27818",
+      "BlockValueText": "없다1"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 7.871348476409912,
+      "EndTime": 8.228697538375854,
+      "BlockType": "animation",
+      "BlockValue": "28072",
+      "BlockValueText": "조심1"
+    },
+    {
+      "StartTime": 8.278697538375855,
+      "EndTime": 8.328697538375854,
+      "BlockType": "animation",
+      "BlockValue": "25209",
+      "BlockValueText": "neutral",
+      "BlockExtraData": []
+    }
+  ],
+  "SequenceHandRight": [
+    {
+      "BlockExtraData": [],
+      "StartTime": 3.8604082465171814,
+      "EndTime": 4.477095067501068,
+      "BlockType": "fingerspell",
+      "BlockValue": "났",
+      "BlockValueText": "났"
+    },
+    {
+      "BlockExtraData": [],
+      "StartTime": 6.021214425563812,
+      "EndTime": 6.581011235713959,
+      "BlockType": "animation",
+      "BlockValue": "25838",
+      "BlockValueText": "장소1"
+    }
+  ],
+  "SequenceHandLeft": [],
+  "SequenceBody": [],
+  "SequenceFace": [],
+  "SequenceMouth": [],
+  "SourceText": "1층에 불이 났으니 대피하세요."
+}
